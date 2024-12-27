@@ -17,6 +17,7 @@ public class Fragment1 extends Fragment {
 
     public Fragment1() {
         //
+        //
     }
 
     private Fragment1Binding binding;
