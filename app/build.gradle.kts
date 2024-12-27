@@ -53,4 +53,7 @@ dependencies {
     // Added dependencies
     implementation(libs.navigation.fragment.ktx)
     implementation(libs.navigation.ui.ktx)
+
+    // Added dependencies 2
+    implementation("com.google.code.gson:gson:2.8.9")
 }

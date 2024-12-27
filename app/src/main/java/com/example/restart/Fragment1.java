@@ -15,9 +15,19 @@ import androidx.navigation.Navigation;
 
 import com.example.restart.CustomAdapter;
 import com.example.restart.databinding.Fragment1Binding;
+import com.example.restart.model.RestaurantData;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.lang.reflect.GenericSignatureFormatError;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
+
+//add for type 1
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
 
 public class Fragment1 extends Fragment {
 
@@ -37,19 +47,9 @@ public class Fragment1 extends Fragment {
 
         ListView list = binding.list;
 
-        // 데이터 준비
-        List<com.example.restart.ItemData> data = new ArrayList<>();
-        data.add(new com.example.restart.ItemData(R.drawable.image1, "음식점123", "Description 1"));
-        data.add(new com.example.restart.ItemData(R.drawable.ic_launcher_foreground, "Item 2", "Description 2"));
-        data.add(new com.example.restart.ItemData(R.drawable.ic_launcher_foreground, "Item 3", "Description 3"));
-        data.add(new com.example.restart.ItemData(R.drawable.ic_launcher_foreground, "Item 4", "Description 4"));
-        data.add(new com.example.restart.ItemData(R.drawable.ic_launcher_foreground, "Item 5", "Description 5"));
-        data.add(new com.example.restart.ItemData(R.drawable.image1, "Item 1", "Description 1"));
-        data.add(new com.example.restart.ItemData(R.drawable.ic_launcher_foreground, "Item 2", "Description 2"));
-        data.add(new com.example.restart.ItemData(R.drawable.ic_launcher_foreground, "Item 3", "Description 3"));
-        data.add(new com.example.restart.ItemData(R.drawable.ic_launcher_foreground, "Item 4", "Description 4"));
-        data.add(new com.example.restart.ItemData(R.drawable.ic_launcher_foreground, "Item 5", "Description 5"));
-        data.add(new com.example.restart.ItemData(R.drawable.image1, "Item 1", "Description 1"));
+        List<com.example.restart.ItemData> data = loadRestaurantsFromJson();
+
+
 
         // 커스텀 어댑터 설정
         CustomAdapter adapter = new CustomAdapter(requireContext(), data);
@@ -57,6 +57,31 @@ public class Fragment1 extends Fragment {
 
         return binding.getRoot();
     }
+
+    //Json -> data로 전달
+    private List<com.example.restart.ItemData> loadRestaurantsFromJson(){
+        List<com.example.restart.ItemData> data = new ArrayList<>();
+        try{
+            //read Json from assets folder
+            InputStreamReader isr = new InputStreamReader(requireContext().getAssets().open("restaurants.json"));
+            BufferedReader reader = new BufferedReader(isr);
+
+            //passing Json to GSON
+            Gson gson = new Gson();
+            Type type = new TypeToken<RestaurantData>() {}.getType();
+            RestaurantData restaurantData = gson.fromJson(reader,type);
+
+            // JSON -> ItemData
+            for (RestaurantData.Restaurant restaurant : restaurantData.getRestaurants()) {
+                data.add(new ItemData(R.drawable.ic_launcher_foreground, restaurant.getName(), restaurant.getPhone()));
+            }
+            //예외발생시
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        return data;
+    }
+
 
     private void navigateToFragment2() {
         NavController navController = Navigation.findNavController(requireView());

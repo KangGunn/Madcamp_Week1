@@ -1,0 +1,84 @@
+{
+  "restaurants": [
+    {
+      "name": "Golden Spoon Restaurant",
+      "phone": "010-1234-5678"
+    },
+    {
+      "name": "Happy Sushi Bar",
+      "phone": "010-2345-6789"
+    },
+    {
+      "name": "Seoul BBQ House",
+      "phone": "010-3456-7890"
+    },
+    {
+      "name": "Pasta Paradise",
+      "phone": "010-4567-8901"
+    },
+    {
+      "name": "Burger World",
+      "phone": "010-5678-9012"
+    },
+    {
+      "name": "Taco Town",
+      "phone": "010-6789-0123"
+    },
+    {
+      "name": "Ramen Delight",
+      "phone": "010-7890-1234"
+    },
+    {
+      "name": "Curry Castle",
+      "phone": "010-8901-2345"
+    },
+    {
+      "name": "Pizza Planet",
+      "phone": "010-9012-3456"
+    },
+    {
+      "name": "Dim Sum Diner",
+      "phone": "010-0123-4567"
+    },
+    {
+      "name": "Noodle Nirvana",
+      "phone": "010-1234-5679"
+    },
+    {
+      "name": "Steak Haven",
+      "phone": "010-2345-6780"
+    },
+    {
+      "name": "Seafood Symphony",
+      "phone": "010-3456-7891"
+    },
+    {
+      "name": "Vegan Vibes",
+      "phone": "010-4567-8902"
+    },
+    {
+      "name": "Cafe Bliss",
+      "phone": "010-5678-9013"
+    },
+    {
+      "name": "BBQ Bistro",
+      "phone": "010-6789-0124"
+    },
+    {
+      "name": "Waffle Wonder",
+      "phone": "010-7890-1235"
+    },
+    {
+      "name": "Hot Pot Heaven",
+      "phone": "010-8901-2346"
+    },
+    {
+      "name": "Sushi Delight",
+      "phone": "010-9012-3457"
+    },
+    {
+      "name": "Dessert Dreams",
+      "phone": "010-0123-4568"
+    }
+  ]
+}
