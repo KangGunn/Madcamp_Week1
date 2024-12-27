@@ -3,14 +3,14 @@
     android:shape="rectangle">
 
     <!-- 버튼 배경색 -->
-    <solid android:color="#32CD32" />
+    <solid android:color="#F4F0BB" />
 
     <!-- 버튼 테두리 -->
     <stroke
-        android:width="2dp"
-        android:color="#32CD32" />
+        android:width="1dp"
+        android:color="#43291F" />
 
     <!-- 버튼 모서리 반경 (사각형이므로 0dp 설정) -->
-    <corners android:radius="0dp" />
+    <corners android:radius="8dp" />
 
 </shape>
