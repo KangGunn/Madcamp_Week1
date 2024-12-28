@@ -72,6 +72,7 @@
             android:layout_margin="16dp"
             android:background="#dcdcdc"
             android:hint="식당 이름을 입력하세요"
+            android:inputType="text"
             android:padding="10dp"
             android:textSize="15dp" />
     </LinearLayout>
