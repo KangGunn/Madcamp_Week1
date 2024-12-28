@@ -49,8 +49,6 @@ public class Fragment1 extends Fragment {
 
         List<com.example.restart.ItemData> data = loadRestaurantsFromJson();
 
-
-
         // 커스텀 어댑터 설정
         CustomAdapter adapter = new CustomAdapter(requireContext(), data);
         list.setAdapter(adapter);
@@ -73,9 +71,9 @@ public class Fragment1 extends Fragment {
 
             // JSON -> ItemData
             for (RestaurantData.Restaurant restaurant : restaurantData.getRestaurants()) {
-                data.add(new ItemData(R.drawable.ic_launcher_foreground, restaurant.getName(), restaurant.getPhone()));
+                data.add(new com.example.restart.ItemData(restaurant.getImage(), restaurant.getName(), restaurant.getPhone()));
             }
-            //예외발생시
+            //예외 발생시
         } catch (Exception e){
             e.printStackTrace();
         }

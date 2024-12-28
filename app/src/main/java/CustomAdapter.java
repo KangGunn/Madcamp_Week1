@@ -1,5 +1,6 @@
 package com.example.restart;
 
+import com.bumptech.glide.Glide;
 import com.example.restart.CustomAdapter;
 import com.example.restart.ItemData;
 
@@ -56,7 +57,12 @@ public class CustomAdapter extends BaseAdapter {
         TextView textView2 = convertView.findViewById(R.id.item_text2);
 
         // 데이터 설정
-        imageView.setImageResource(currentItem.getImageResId());
+        Glide.with(context)
+                .load(currentItem.getImageURL())
+                .placeholder(R.drawable.placeholder)
+                .error(R.drawable.error)
+                .into(imageView);
+
         textView1.setText(currentItem.getText1());
         textView2.setText(currentItem.getText2());
 

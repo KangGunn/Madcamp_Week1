@@ -56,4 +56,6 @@ dependencies {
 
     // Added dependencies 2
     implementation("com.google.code.gson:gson:2.8.9")
+    implementation("com.github.bumptech.glide:glide:4.15.1")
+    annotationProcessor("com.github.bumptech.glide:compiler:4.15.1")
 }
