@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -59,7 +60,24 @@ public class Fragment3 extends Fragment {
         initCameraLauncher(clickPrompt);
         initGalleryLauncher(clickPrompt);
 
+        setupHashtagButtons();
+
         return binding.getRoot();
+    }
+
+    private void setupHashtagButtons() {
+        int[] buttonIds = {
+                R.id.button1, R.id.button2, R.id.button3, R.id.button4, R.id.button5,
+                R.id.button6, R.id.button7, R.id.button8, R.id.button9, R.id.button10
+        };
+
+        for (int id : buttonIds) {
+            Button button = binding.getRoot().findViewById(id);
+            button.setOnClickListener(v -> {
+                boolean isSelected = button.isSelected();
+                button.setSelected(!isSelected);
+            });
+        }
     }
 
     private void showImagePickerDialog(TextView clickPrompt) {
