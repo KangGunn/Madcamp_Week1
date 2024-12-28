@@ -31,6 +31,8 @@ import androidx.navigation.Navigation;
 import com.bumptech.glide.Glide;
 import com.example.restart.databinding.Fragment3Binding;
 
+import org.w3c.dom.Text;
+
 public class Fragment3 extends Fragment {
 
     public Fragment3() {
@@ -53,8 +55,8 @@ public class Fragment3 extends Fragment {
         TextView clickPrompt = binding.clickPromptText;
         binding.imageView3.setOnClickListener(v -> showImagePickerDialog(clickPrompt));
 
-        initPermissionLauncher();
-        initCameraLauncher();
+        initPermissionLauncher(clickPrompt);
+        initCameraLauncher(clickPrompt);
         initGalleryLauncher(clickPrompt);
 
         return binding.getRoot();
@@ -66,28 +68,28 @@ public class Fragment3 extends Fragment {
         new AlertDialog.Builder(requireContext())
                 .setTitle("이미지 선택")
                 .setItems(options, (dialog, which) -> {
-                    if (which == 0) checkCameraPermissionAndOpenCamera();
+                    if (which == 0) checkCameraPermissionAndOpenCamera(clickPrompt);
                     else if (which == 1) openGallery(clickPrompt);
                 })
                 .create()
                 .show();
     }
 
-    private void checkCameraPermissionAndOpenCamera() {
+    private void checkCameraPermissionAndOpenCamera(TextView clickPrompt) {
         if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.CAMERA)
                 != PackageManager.PERMISSION_GRANTED) {
             requestPermissionLauncher.launch(Manifest.permission.CAMERA);
         } else {
-            openCamera();
+            openCamera(clickPrompt);
         }
     }
 
-    private void initPermissionLauncher() {
+    private void initPermissionLauncher(TextView clickPrompt) {
         requestPermissionLauncher = registerForActivityResult(
                 new ActivityResultContracts.RequestPermission(),
                 isGranted -> {
                     if (isGranted) {
-                        openCamera();
+                        openCamera(clickPrompt);
                     } else {
                         Log.e("Permissions", "Camera permission denied");
                     }
@@ -95,7 +97,7 @@ public class Fragment3 extends Fragment {
         );
     }
 
-    private void openCamera() {
+    private void openCamera(TextView clickPrompt) {
         String fileName = "photo_" + System.currentTimeMillis() + ".jpg";
         ContentValues values = new ContentValues();
         values.put(MediaStore.Images.Media.TITLE, fileName);
@@ -110,7 +112,7 @@ public class Fragment3 extends Fragment {
         }
     }
 
-    private void initCameraLauncher() {
+    private void initCameraLauncher(TextView clickPrompt) {
         cameraLauncher = registerForActivityResult(
             new ActivityResultContracts.TakePicture(),
             isSuccess -> {
@@ -118,6 +120,7 @@ public class Fragment3 extends Fragment {
                     Glide.with(this)
                             .load(photoUri)
                             .into(binding.imageView3);
+                    clickPrompt.setVisibility(View.GONE);
                 } else {
                     Log.e("Camera", "Image capture failed or URI is null");
                 }
