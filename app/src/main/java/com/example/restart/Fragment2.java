@@ -45,7 +45,7 @@ public class Fragment2 extends Fragment {
 
         List<com.example.restart.ItemData> data = loadRestaurantsFromJson();
 
-        com.example.restart.CustomAdapter adapter = new com.example.restart.CustomAdapter(requireContext(), data);
+        com.example.restart.CustomAdapter_tab2 adapter = new com.example.restart.CustomAdapter_tab2(requireContext(), data);
         grid.setAdapter(adapter);
 
         return binding.getRoot();
@@ -65,7 +65,7 @@ public class Fragment2 extends Fragment {
 
             // JSON -> ItemData
             for (RestaurantData_tab2.Restaurant restaurant : restaurantData.getRestaurants()) {
-                data.add(new com.example.restart.ItemData(restaurant.getImage(), restaurant.getName(), restaurant.getPhone()));
+                data.add(new com.example.restart.ItemData(restaurant.getImage(), restaurant.getName(), restaurant.getComment()));
             }
             //예외발생시
         } catch (Exception e){

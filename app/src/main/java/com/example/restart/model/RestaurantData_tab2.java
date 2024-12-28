@@ -10,15 +10,15 @@ public class RestaurantData_tab2 {
 
     public static  class Restaurant{
         private String name;
-        private String phone;
+        private String comment;
         private String imageUrl;
 
         public String getName(){
             return name;
         }
 
-        public String getPhone(){
-            return phone;
+        public String getComment(){
+            return comment;
         }
 
         public String getImage(){

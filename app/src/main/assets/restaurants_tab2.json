@@ -2,103 +2,103 @@
   "restaurants": [
     {
       "name": "Sushi Paradise",
-      "phone": "123-456-7890",
-      "imageUrl": "https://via.placeholder.com/150"
+      "comment": "#음식이 맛있어요 #사장님이 친절해요",
+      "imageUrl": "https://i.namu.wiki/i/vwbKQLdn5CzWLTdLHKb2rYjLZS6icyFb6b6PdEz_3Y_0gJQqRMuhHGgogptO19gl3NZMnRsTvjYlA-0-JRSrbw.webp"
+    },
+    {
+      "name": "Burger World",
+      "comment": "#햄버거가 정말 맛있어요 #가격이 저렴해요",
+      "imageUrl": "https://search.pstatic.net/sunny/?src=https%3A%2F%2Fpreviews.123rf.com%2Fimages%2Fgmeviphoto%2Fgmeviphoto1302%2Fgmeviphoto130200004%2F17847453-%25ED%2596%2584%25EB%25B2%2584%25EA%25B1%25B0.jpg&type=a340"
     },
     {
       "name": "Pizza Haven",
-      "phone": "987-654-3210",
-      "imageUrl": "https://picsum.photos/150"
-    },
-    {
-      "name": "Burger Town",
-      "phone": "456-789-0123",
-      "imageUrl": "https://placekitten.com/150/150"
+      "comment": "#치즈가 풍부해요 #가족과 함께 오기 좋아요",
+      "imageUrl": "https://images.unsplash.com/photo-1548365328-5829db11f5ff?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400"
     },
     {
       "name": "Taco Fiesta",
-      "phone": "111-222-3333",
-      "imageUrl": "https://via.placeholder.com/150/FF0000/FFFFFF?text=Taco"
-    },
-    {
-      "name": "Steak House",
-      "phone": "222-333-4444",
-      "imageUrl": "https://picsum.photos/seed/steak/150"
+      "comment": "#매운 타코가 일품이에요 #매운 음식 좋아하는 분께 추천",
+      "imageUrl": "https://images.unsplash.com/photo-1604908177521-4b553c7e321b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400"
     },
     {
       "name": "Pasta Villa",
-      "phone": "333-444-5555",
-      "imageUrl": "https://placekitten.com/151/150"
+      "comment": "#파스타가 신선해요 #분위기가 좋아요",
+      "imageUrl": "https://images.unsplash.com/photo-1523986371872-9d3ba2e2c50b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400"
     },
     {
-      "name": "Vegan Delight",
-      "phone": "444-555-6666",
-      "imageUrl": "https://via.placeholder.com/150/00FF00/FFFFFF?text=Vegan"
+      "name": "Steak House",
+      "comment": "#스테이크가 부드러워요 #데이트 장소로 최고",
+      "imageUrl": "https://images.unsplash.com/photo-1571458931248-3829d23e5b09?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400"
     },
     {
       "name": "Curry Corner",
-      "phone": "555-666-7777",
-      "imageUrl": "https://picsum.photos/seed/curry/150"
+      "comment": "#정통 인도 커리 맛집 #강렬한 향신료의 향",
+      "imageUrl": "https://images.unsplash.com/photo-1562967916-eb82221dfb24?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400"
+    },
+    {
+      "name": "Vegan Delight",
+      "comment": "#채식주의자를 위한 천국 #건강한 맛을 느껴보세요",
+      "imageUrl": "https://images.unsplash.com/photo-1506806732259-39c2d0268443?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400"
     },
     {
       "name": "BBQ Joint",
-      "phone": "666-777-8888",
-      "imageUrl": "https://placekitten.com/152/150"
+      "comment": "#바베큐가 정말 맛있어요 #모임에 딱 좋아요",
+      "imageUrl": "https://images.unsplash.com/photo-1599024281899-018ff6f6c472?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400"
     },
     {
       "name": "Dessert Den",
-      "phone": "777-888-9999",
-      "imageUrl": "https://via.placeholder.com/150/0000FF/FFFFFF?text=Dessert"
-    },
-    {
-      "name": "Coffee Craze",
-      "phone": "888-999-0000",
-      "imageUrl": "https://picsum.photos/seed/coffee/150"
+      "comment": "#디저트 종류가 다양해요 #케이크가 정말 맛있어요",
+      "imageUrl": "https://images.unsplash.com/photo-1587304893212-2d55ff3f9cd3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400"
     },
     {
       "name": "Seafood Spot",
-      "phone": "999-000-1111",
-      "imageUrl": "https://placekitten.com/153/150"
+      "comment": "#싱싱한 해산물이 일품 #초밥과 회가 맛있어요",
+      "imageUrl": "https://images.unsplash.com/photo-1565073058745-1119ea0e22cc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400"
     },
     {
       "name": "Ramen Nook",
-      "phone": "000-111-2222",
-      "imageUrl": "https://via.placeholder.com/150/FFFF00/000000?text=Ramen"
+      "comment": "#라멘 국물이 진하고 맛있어요 #사리 추가 무료",
+      "imageUrl": "https://images.unsplash.com/photo-1605256586354-8a37b52d57c1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400"
     },
     {
       "name": "Grill Station",
-      "phone": "111-222-3334",
-      "imageUrl": "https://picsum.photos/seed/grill/150"
+      "comment": "#고기 굽는 냄새가 좋아요 #직접 구워먹는 재미",
+      "imageUrl": "https://images.unsplash.com/photo-1599124086143-b7423abf7c7b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400"
     },
     {
-      "name": "Bistro Bliss",
-      "phone": "222-333-4445",
-      "imageUrl": "https://placekitten.com/154/150"
-    },
-    {
-      "name": "Pancake Palace",
-      "phone": "333-444-5556",
-      "imageUrl": "https://via.placeholder.com/150/FFA500/FFFFFF?text=Pancake"
-    },
-    {
-      "name": "Smoothie Shack",
-      "phone": "444-555-6667",
-      "imageUrl": "https://picsum.photos/seed/smoothie/150"
-    },
-    {
-      "name": "Diner Deluxe",
-      "phone": "555-666-7778",
-      "imageUrl": "https://placekitten.com/155/150"
-    },
-    {
-      "name": "Tapas Trail",
-      "phone": "666-777-8889",
-      "imageUrl": "https://via.placeholder.com/150/8A2BE2/FFFFFF?text=Tapas"
+      "name": "Coffee Craze",
+      "comment": "#커피가 향긋하고 맛있어요 #조용히 공부하기 좋은 곳",
+      "imageUrl": "https://images.unsplash.com/photo-1514851551782-dc22d6605013?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400"
     },
     {
       "name": "Waffle World",
-      "phone": "777-888-9990",
-      "imageUrl": "https://picsum.photos/seed/waffle/150"
+      "comment": "#와플이 바삭하고 맛있어요 #디저트로 강추",
+      "imageUrl": "https://images.unsplash.com/photo-1517256673644-36ad11246d21?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400"
+    },
+    {
+      "name": "Pancake Palace",
+      "comment": "#팬케이크가 정말 부드러워요 #아침식사로 딱 좋아요",
+      "imageUrl": "https://images.unsplash.com/photo-1570872628956-5ff1b2edccab?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400"
+    },
+    {
+      "name": "Smoothie Shack",
+      "comment": "#과일 스무디가 신선하고 달콤해요 #여름에 추천",
+      "imageUrl": "https://images.unsplash.com/photo-1590086782794-6800fc72d5db?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400"
+    },
+    {
+      "name": "Diner Deluxe",
+      "comment": "#미국식 다이너의 분위기 #햄버거와 쉐이크가 맛있어요",
+      "imageUrl": "https://images.unsplash.com/photo-1612392061783-f0cd4ec0023a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400"
+    },
+    {
+      "name": "Tapas Trail",
+      "comment": "#다양한 타파스를 즐길 수 있어요 #스페인 느낌 물씬",
+      "imageUrl": "https://images.unsplash.com/photo-1562053563-4237c832f6a1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400"
+    },
+    {
+      "name": "Mexican Fiesta",
+      "comment": "#정통 멕시코 타코와 부리또 맛집 #칠리 소스가 매력적",
+      "imageUrl": "https://images.unsplash.com/photo-1570197787848-41a4e1a7a0e9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400"
     }
   ]
 }
