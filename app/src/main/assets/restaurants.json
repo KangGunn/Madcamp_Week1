@@ -1,104 +1,104 @@
 {
   "restaurants": [
     {
-      "name": "Golden Spoon Restaurant",
-      "phone": "010-1234-5678",
-      "img": "https://picsum.photos/400/300"
+      "name": "두발네발",
+      "phone": "042-863-1019",
+      "img": "https://cdn.icon-icons.com/icons2/2510/PNG/512/beer_mug_alcohol_drink_beverage_pub_icon_150779.png"
     },
     {
-      "name": "Happy Sushi Bar",
-      "phone": "010-2345-6789",
-      "img": "https://picsum.photos/400/300"
+      "name": "잇마이타이",
+      "phone": "042-335-5466",
+      "img": "https://i.pinimg.com/originals/4e/24/f5/4e24f523182e09376bfe8424d556610a.png"
     },
     {
-      "name": "Seoul BBQ House",
-      "phone": "010-3456-7890",
-      "img": "https://picsum.photos/400/300"
+      "name": "폼프리츠",
+      "phone": "0517-1310-3678",
+      "img": "https://cdn.icon-icons.com/icons2/2510/PNG/512/beer_mug_alcohol_drink_beverage_pub_icon_150779.png"
     },
     {
-      "name": "Pasta Paradise",
-      "phone": "010-4567-8901",
-      "img": "https://picsum.photos/400/300"
+      "name": "엉클부대찌개 어은점",
+      "phone": "042-867-0102",
+      "img": "https://i.pinimg.com/originals/4e/24/f5/4e24f523182e09376bfe8424d556610a.png"
     },
     {
-      "name": "Burger World",
-      "phone": "010-5678-9012",
-      "img": "https://url.kr/7bevko"
+      "name": "왕비성",
+      "phone": "042-862-9292",
+      "img": "https://i.pinimg.com/originals/4e/24/f5/4e24f523182e09376bfe8424d556610a.png"
     },
     {
-      "name": "Taco Town",
-      "phone": "010-6789-0123",
-      "img": "https://url.kr/7bevko"
+      "name": "잇텐",
+      "phone": "0507-1308-8593",
+      "img": "https://i.pinimg.com/originals/4e/24/f5/4e24f523182e09376bfe8424d556610a.png"
     },
     {
-      "name": "Ramen Delight",
-      "phone": "010-7890-1234",
-      "img": "https://url.kr/7bevko"
+      "name": "베리신주쿠",
+      "phone": "042-863-7339",
+      "img": "https://i.pinimg.com/originals/4e/24/f5/4e24f523182e09376bfe8424d556610a.png"
     },
     {
-      "name": "Curry Castle",
-      "phone": "010-8901-2345",
-      "img": "https://url.kr/7bevko"
+      "name": "아소부",
+      "phone": "042-825-2995",
+      "img": "https://i.pinimg.com/originals/4e/24/f5/4e24f523182e09376bfe8424d556610a.png"
     },
     {
-      "name": "Pizza Planet",
-      "phone": "010-9012-3456",
-      "img": "https://url.kr/7bevko"
+      "name": "메가MGC커피 대전유성구청점",
+      "phone": "0507-0289-9664",
+      "img": "https://img.icons8.com/ios7/600w/cafe.png"
     },
     {
-      "name": "Dim Sum Diner",
-      "phone": "010-0123-4567",
-      "img": "https://url.kr/7bevko"
+      "name": "마쯔미라멘",
+      "phone": "0507-1332-0953",
+      "img": "https://i.pinimg.com/originals/4e/24/f5/4e24f523182e09376bfe8424d556610a.png"
     },
     {
-      "name": "Noodle Nirvana",
-      "phone": "010-1234-5679",
-      "img": "https://url.kr/7bevko"
+      "name": "투다리 어은점",
+      "phone": "042-863-8569",
+      "img": "https://cdn.icon-icons.com/icons2/2510/PNG/512/beer_mug_alcohol_drink_beverage_pub_icon_150779.png"
     },
     {
-      "name": "Steak Haven",
-      "phone": "010-2345-6780",
-      "img": "https://url.kr/7bevko"
+      "name": "꼬꾸마시 어은점",
+      "phone": "042-863-0633",
+      "img": "https://cdn.icon-icons.com/icons2/2510/PNG/512/beer_mug_alcohol_drink_beverage_pub_icon_150779.png"
     },
     {
-      "name": "Seafood Symphony",
-      "phone": "010-3456-7891",
-      "img": "https://url.kr/7bevko"
+      "name": "스타벅스 대전유성구청점",
+      "phone": "1522-3232",
+      "img": "https://img.icons8.com/ios7/600w/cafe.png"
     },
     {
-      "name": "Vegan Vibes",
-      "phone": "010-4567-8902",
-      "img": "https://url.kr/7bevko"
+      "name": "도미노피자 유성점",
+      "phone": "042-861-3082",
+      "img": "https://i.pinimg.com/originals/4e/24/f5/4e24f523182e09376bfe8424d556610a.png"
     },
     {
-      "name": "Cafe Bliss",
-      "phone": "010-5678-9013",
-      "img": "https://url.kr/7bevko"
+      "name": "BBQ치킨 대전어은점",
+      "phone": "042-863-9292",
+      "img": "https://i.pinimg.com/originals/4e/24/f5/4e24f523182e09376bfe8424d556610a.png"
     },
     {
-      "name": "BBQ Bistro",
-      "phone": "010-6789-0124",
-      "img": "https://url.kr/7bevko"
+      "name": "신샤브",
+      "phone": "0507-1302-4709",
+      "img": "https://i.pinimg.com/originals/4e/24/f5/4e24f523182e09376bfe8424d556610a.png"
     },
     {
-      "name": "Waffle Wonder",
-      "phone": "010-7890-1235",
-      "img": "https://url.kr/7bevko"
+      "name": "하레",
+      "phone": "070-8126-4139",
+      "img": "https://i.pinimg.com/originals/4e/24/f5/4e24f523182e09376bfe8424d556610a.png"
     },
     {
-      "name": "Hot Pot Heaven",
-      "phone": "010-8901-2346",
-      "img": "https://url.kr/7bevko"
+      "name": "훌랄라참숯바베큐치킨 어은1점",
+      "phone": "042-863-5577",
+      "img": "https://i.pinimg.com/originals/4e/24/f5/4e24f523182e09376bfe8424d556610a.png"
     },
     {
-      "name": "Sushi Delight",
-      "phone": "010-9012-3457",
-      "img": "https://url.kr/7bevko"
+      "name": "어은스시",
+      "phone": "042-863-5306",
+      "img": "https://i.pinimg.com/originals/4e/24/f5/4e24f523182e09376bfe8424d556610a.png"
     },
     {
-      "name": "Dessert Dreams",
-      "phone": "010-0123-4568",
-      "img": "https://url.kr/7bevko"
+      "name": "화통",
+      "phone": "042-863-0880",
+      "img": "https://i.pinimg.com/originals/4e/24/f5/4e24f523182e09376bfe8424d556610a.png"
     }
   ]
 }
