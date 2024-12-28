@@ -13,7 +13,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="테스트1"
+        android:text="나의 식당"
         android:textSize="30sp"
         android:gravity="center" />
 
@@ -24,16 +24,18 @@
         android:layout_weight="1"
         android:dividerHeight="5dp" />
 
-<!--    <View-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="2dp"-->
-<!--        android:background="@color/black" />-->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/black" />
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:gravity="center" >
+        android:gravity="center"
+        android:background="#E5E4E2">
 
         <android.widget.Button
             android:id="@+id/button1"
@@ -41,8 +43,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/button_background"
-            android:text="Button 11"
-            android:textColor="@color/black"
+            android:drawableLeft="@drawable/button1_image_resized"
+            android:text="나의 식당"
+            android:textColor="#666362"
             android:textSize="15sp" />
 
         <android.widget.Button
@@ -51,19 +54,21 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/button_background"
-            android:text="Button 12"
-            android:textColor="@color/black"
-            android:textSize="15sp"/>
+            android:drawableLeft="@drawable/button2_image_resized"
+            android:text="추천 식당"
+            android:textColor="#666362"
+            android:textSize="15sp" />
 
         <android.widget.Button
             android:id="@+id/button13"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@drawable/button_background"
-            android:text="Button 13"
-            android:textColor="@color/black"
-            android:textSize="15sp"/>
+            android:drawableLeft="@drawable/button3_image_resized"
+            android:text="식당 추가"
+            android:textColor="#666362"
+            android:textSize="15sp" />
 
     </LinearLayout>
 </LinearLayout>

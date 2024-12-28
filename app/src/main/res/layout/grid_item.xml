@@ -7,18 +7,30 @@
     android:padding="8dp" >
 
     <ImageView
-        android:id="@+id/item_image2"
+        android:id="@+id/item_image"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="150dp"
         android:layout_weight="1"
         android:scaleType="centerCrop" />
 
     <TextView
+        android:id="@+id/item_text1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="설명"
+        android:text="음식점 이름"
         android:textSize="14sp"
         android:textColor="#000"
         android:paddingTop="4dp" />
+
+    <TextView
+        android:id="@+id/item_text2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="한줄평"
+        android:textSize="14sp"
+        android:textColor="#000"
+        android:paddingTop="4dp" />
+
 </LinearLayout>

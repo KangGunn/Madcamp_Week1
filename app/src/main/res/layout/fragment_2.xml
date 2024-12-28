@@ -14,22 +14,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="테스트2"
+        android:text="추천 식당"
         android:textSize="30sp" />
 
     <GridView
         android:id="@+id/grid"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_weight="1"
         android:gravity="center"
         android:horizontalSpacing="10dp"
+        android:verticalSpacing="40dp"
         android:numColumns="2"
-        android:stretchMode="columnWidth"
-        android:verticalSpacing="10dp"
-        app:layout_constraintBottom_toTopOf="@id/buttonLayout2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textView2" />
+        android:stretchMode="columnWidth" />
 
     <LinearLayout
         android:id="@+id/buttonLayout2"
