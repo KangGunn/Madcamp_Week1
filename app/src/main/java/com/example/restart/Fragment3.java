@@ -15,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContract;
@@ -49,23 +50,24 @@ public class Fragment3 extends Fragment {
         binding.button31.setOnClickListener(v -> navigateToFragment1());
         binding.button32.setOnClickListener(v -> navigateToFragment2());
 
-        binding.imageView3.setOnClickListener(v -> showImagePickerDialog());
+        TextView clickPrompt = binding.clickPromptText;
+        binding.imageView3.setOnClickListener(v -> showImagePickerDialog(clickPrompt));
 
         initPermissionLauncher();
         initCameraLauncher();
-        initGalleryLauncher();
+        initGalleryLauncher(clickPrompt);
 
         return binding.getRoot();
     }
 
-    private void showImagePickerDialog() {
+    private void showImagePickerDialog(TextView clickPrompt) {
         String[] options = {"카메라", "갤러리"};
 
         new AlertDialog.Builder(requireContext())
                 .setTitle("이미지 선택")
                 .setItems(options, (dialog, which) -> {
                     if (which == 0) checkCameraPermissionAndOpenCamera();
-                    else if (which == 1) openGallery();
+                    else if (which == 1) openGallery(clickPrompt);
                 })
                 .create()
                 .show();
@@ -123,12 +125,12 @@ public class Fragment3 extends Fragment {
         );
     }
 
-    private void openGallery() {
+    private void openGallery(TextView clickPrompt) {
         Intent galleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         galleryLauncher.launch(galleryIntent);
     }
 
-    private void initGalleryLauncher() {
+    private void initGalleryLauncher(TextView clickPrompt) {
         galleryLauncher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
             result -> {
@@ -136,6 +138,7 @@ public class Fragment3 extends Fragment {
                     Uri selectedImageUri = result.getData().getData();
                     if (selectedImageUri != null) {
                         binding.imageView3.setImageURI(selectedImageUri);
+                        clickPrompt.setVisibility(View.GONE);
                     }
                 }
             }
