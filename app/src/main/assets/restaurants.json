@@ -2,83 +2,103 @@
   "restaurants": [
     {
       "name": "Golden Spoon Restaurant",
-      "phone": "010-1234-5678"
+      "phone": "010-1234-5678",
+      "img": "https://picsum.photos/400/300"
     },
     {
       "name": "Happy Sushi Bar",
-      "phone": "010-2345-6789"
+      "phone": "010-2345-6789",
+      "img": "https://picsum.photos/400/300"
     },
     {
       "name": "Seoul BBQ House",
-      "phone": "010-3456-7890"
+      "phone": "010-3456-7890",
+      "img": "https://picsum.photos/400/300"
     },
     {
       "name": "Pasta Paradise",
-      "phone": "010-4567-8901"
+      "phone": "010-4567-8901",
+      "img": "https://picsum.photos/400/300"
     },
     {
       "name": "Burger World",
-      "phone": "010-5678-9012"
+      "phone": "010-5678-9012",
+      "img": "https://url.kr/7bevko"
     },
     {
       "name": "Taco Town",
-      "phone": "010-6789-0123"
+      "phone": "010-6789-0123",
+      "img": "https://url.kr/7bevko"
     },
     {
       "name": "Ramen Delight",
-      "phone": "010-7890-1234"
+      "phone": "010-7890-1234",
+      "img": "https://url.kr/7bevko"
     },
     {
       "name": "Curry Castle",
-      "phone": "010-8901-2345"
+      "phone": "010-8901-2345",
+      "img": "https://url.kr/7bevko"
     },
     {
       "name": "Pizza Planet",
-      "phone": "010-9012-3456"
+      "phone": "010-9012-3456",
+      "img": "https://url.kr/7bevko"
     },
     {
       "name": "Dim Sum Diner",
-      "phone": "010-0123-4567"
+      "phone": "010-0123-4567",
+      "img": "https://url.kr/7bevko"
     },
     {
       "name": "Noodle Nirvana",
-      "phone": "010-1234-5679"
+      "phone": "010-1234-5679",
+      "img": "https://url.kr/7bevko"
     },
     {
       "name": "Steak Haven",
-      "phone": "010-2345-6780"
+      "phone": "010-2345-6780",
+      "img": "https://url.kr/7bevko"
     },
     {
       "name": "Seafood Symphony",
-      "phone": "010-3456-7891"
+      "phone": "010-3456-7891",
+      "img": "https://url.kr/7bevko"
     },
     {
       "name": "Vegan Vibes",
-      "phone": "010-4567-8902"
+      "phone": "010-4567-8902",
+      "img": "https://url.kr/7bevko"
     },
     {
       "name": "Cafe Bliss",
-      "phone": "010-5678-9013"
+      "phone": "010-5678-9013",
+      "img": "https://url.kr/7bevko"
     },
     {
       "name": "BBQ Bistro",
-      "phone": "010-6789-0124"
+      "phone": "010-6789-0124",
+      "img": "https://url.kr/7bevko"
     },
     {
       "name": "Waffle Wonder",
-      "phone": "010-7890-1235"
+      "phone": "010-7890-1235",
+      "img": "https://url.kr/7bevko"
     },
     {
       "name": "Hot Pot Heaven",
-      "phone": "010-8901-2346"
+      "phone": "010-8901-2346",
+      "img": "https://url.kr/7bevko"
     },
     {
       "name": "Sushi Delight",
-      "phone": "010-9012-3457"
+      "phone": "010-9012-3457",
+      "img": "https://url.kr/7bevko"
     },
     {
       "name": "Dessert Dreams",
-      "phone": "010-0123-4568"
+      "phone": "010-0123-4568",
+      "img": "https://url.kr/7bevko"
     }
   ]
 }

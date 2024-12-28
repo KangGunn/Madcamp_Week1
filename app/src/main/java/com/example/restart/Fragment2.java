@@ -65,7 +65,7 @@ public class Fragment2 extends Fragment {
 
             // JSON -> ItemData
             for (RestaurantData_tab2.Restaurant restaurant : restaurantData.getRestaurants()) {
-                data.add(new com.example.restart.ItemData(restaurant.getImageUrl(), restaurant.getName(), restaurant.getPhone()));
+                data.add(new com.example.restart.ItemData(restaurant.getImage(), restaurant.getName(), restaurant.getPhone()));
             }
             //예외발생시
         } catch (Exception e){

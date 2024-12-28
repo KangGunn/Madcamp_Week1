@@ -21,7 +21,7 @@ public class RestaurantData_tab2 {
             return phone;
         }
 
-        public String getImageUrl(){
+        public String getImage(){
             return imageUrl;
         }
     }

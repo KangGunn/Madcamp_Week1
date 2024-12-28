@@ -12,6 +12,7 @@ public class RestaurantData {
     public static class Restaurant {
         private String name;
         private String phone;
+        private String img;
 
         public String getName() {
             return name;
@@ -20,5 +21,6 @@ public class RestaurantData {
         public String getPhone() {
             return phone;
         }
+        public String getImage() { return img; }
     }
 }
