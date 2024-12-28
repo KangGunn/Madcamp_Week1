@@ -1,0 +1,104 @@
+{
+  "restaurants": [
+    {
+      "name": "Sushi Paradise",
+      "phone": "123-456-7890",
+      "imageUrl": "https://via.placeholder.com/150"
+    },
+    {
+      "name": "Pizza Haven",
+      "phone": "987-654-3210",
+      "imageUrl": "https://picsum.photos/150"
+    },
+    {
+      "name": "Burger Town",
+      "phone": "456-789-0123",
+      "imageUrl": "https://placekitten.com/150/150"
+    },
+    {
+      "name": "Taco Fiesta",
+      "phone": "111-222-3333",
+      "imageUrl": "https://via.placeholder.com/150/FF0000/FFFFFF?text=Taco"
+    },
+    {
+      "name": "Steak House",
+      "phone": "222-333-4444",
+      "imageUrl": "https://picsum.photos/seed/steak/150"
+    },
+    {
+      "name": "Pasta Villa",
+      "phone": "333-444-5555",
+      "imageUrl": "https://placekitten.com/151/150"
+    },
+    {
+      "name": "Vegan Delight",
+      "phone": "444-555-6666",
+      "imageUrl": "https://via.placeholder.com/150/00FF00/FFFFFF?text=Vegan"
+    },
+    {
+      "name": "Curry Corner",
+      "phone": "555-666-7777",
+      "imageUrl": "https://picsum.photos/seed/curry/150"
+    },
+    {
+      "name": "BBQ Joint",
+      "phone": "666-777-8888",
+      "imageUrl": "https://placekitten.com/152/150"
+    },
+    {
+      "name": "Dessert Den",
+      "phone": "777-888-9999",
+      "imageUrl": "https://via.placeholder.com/150/0000FF/FFFFFF?text=Dessert"
+    },
+    {
+      "name": "Coffee Craze",
+      "phone": "888-999-0000",
+      "imageUrl": "https://picsum.photos/seed/coffee/150"
+    },
+    {
+      "name": "Seafood Spot",
+      "phone": "999-000-1111",
+      "imageUrl": "https://placekitten.com/153/150"
+    },
+    {
+      "name": "Ramen Nook",
+      "phone": "000-111-2222",
+      "imageUrl": "https://via.placeholder.com/150/FFFF00/000000?text=Ramen"
+    },
+    {
+      "name": "Grill Station",
+      "phone": "111-222-3334",
+      "imageUrl": "https://picsum.photos/seed/grill/150"
+    },
+    {
+      "name": "Bistro Bliss",
+      "phone": "222-333-4445",
+      "imageUrl": "https://placekitten.com/154/150"
+    },
+    {
+      "name": "Pancake Palace",
+      "phone": "333-444-5556",
+      "imageUrl": "https://via.placeholder.com/150/FFA500/FFFFFF?text=Pancake"
+    },
+    {
+      "name": "Smoothie Shack",
+      "phone": "444-555-6667",
+      "imageUrl": "https://picsum.photos/seed/smoothie/150"
+    },
+    {
+      "name": "Diner Deluxe",
+      "phone": "555-666-7778",
+      "imageUrl": "https://placekitten.com/155/150"
+    },
+    {
+      "name": "Tapas Trail",
+      "phone": "666-777-8889",
+      "imageUrl": "https://via.placeholder.com/150/8A2BE2/FFFFFF?text=Tapas"
+    },
+    {
+      "name": "Waffle World",
+      "phone": "777-888-9990",
+      "imageUrl": "https://picsum.photos/seed/waffle/150"
+    }
+  ]
+}

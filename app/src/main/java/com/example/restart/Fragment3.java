@@ -30,12 +30,14 @@ public class Fragment3 extends Fragment {
         binding.button31.setOnClickListener(v -> navigateToFragment1());
         binding.button32.setOnClickListener(v -> navigateToFragment2());
 
+        //URL 주소
         String imageUrl = "https://picsum.photos/400/300";
         loadImage(imageUrl);
 
         return binding.getRoot();
     }
 
+    //GLIDE 활용 이미지 가져오기
     private void loadImage(String url){
         Glide.with(this)
                 .load(url)

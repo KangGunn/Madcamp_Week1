@@ -4,9 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
 import android.widget.GridView;
-import android.widget.ArrayAdapter;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -14,18 +12,17 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
-import com.example.restart.CustomAdapter;
 import com.example.restart.databinding.Fragment2Binding;
 import com.example.restart.model.RestaurantData;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.lang.reflect.GenericSignatureFormatError;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
 //add for type 2
+import com.example.restart.model.RestaurantData_tab2;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -48,7 +45,7 @@ public class Fragment2 extends Fragment {
 
         List<com.example.restart.ItemData> data = loadRestaurantsFromJson();
 
-        CustomAdapter adapter = new CustomAdapter(requireContext(), data);
+        com.example.restart.CustomAdapter adapter = new com.example.restart.CustomAdapter(requireContext(), data);
         grid.setAdapter(adapter);
 
         return binding.getRoot();
@@ -58,17 +55,17 @@ public class Fragment2 extends Fragment {
         List<com.example.restart.ItemData> data = new ArrayList<>();
         try{
             //read Json from assets folder
-            InputStreamReader isr = new InputStreamReader(requireContext().getAssets().open("restaurants.json"));
+            InputStreamReader isr = new InputStreamReader(requireContext().getAssets().open("restaurants_tab2.json"));
             BufferedReader reader = new BufferedReader(isr);
 
             //passing Json to GSON
             Gson gson = new Gson();
-            Type type = new TypeToken<RestaurantData>() {}.getType();
-            RestaurantData restaurantData = gson.fromJson(reader,type);
+            Type type = new TypeToken<RestaurantData_tab2>() {}.getType();
+            RestaurantData_tab2 restaurantData = gson.fromJson(reader,type);
 
             // JSON -> ItemData
-            for (RestaurantData.Restaurant restaurant : restaurantData.getRestaurants()) {
-                data.add(new com.example.restart.ItemData(R.drawable.ic_launcher_foreground, restaurant.getName(), restaurant.getPhone()));
+            for (RestaurantData_tab2.Restaurant restaurant : restaurantData.getRestaurants()) {
+                data.add(new com.example.restart.ItemData(restaurant.getImageUrl(), restaurant.getName(), restaurant.getPhone()));
             }
             //예외발생시
         } catch (Exception e){
