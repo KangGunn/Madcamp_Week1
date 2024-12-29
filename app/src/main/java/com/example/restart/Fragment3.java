@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContract;
@@ -61,6 +62,10 @@ public class Fragment3 extends Fragment {
         initGalleryLauncher(clickPrompt);
 
         setupHashtagButtons();
+
+
+        //add 12/29
+        binding.uploadbutton.setOnClickListener(v -> showUploadDialog());
 
         return binding.getRoot();
     }
@@ -165,6 +170,32 @@ public class Fragment3 extends Fragment {
             }
         );
     }
+
+
+    //add 1229 : 업로드 버튼 누를시 팝업
+    //add 1229 : 업로드 버튼 누를시 팝업
+    //add 1229 : 업로드 버튼 누를시 팝업
+    private void showUploadDialog(){
+        new AlertDialog.Builder(requireContext())
+                .setTitle("업로드 확인")
+                .setMessage("이대로 업로드하시겠습니까?")
+                .setPositiveButton("확인",(dialog,which) ->{
+                    //클릭시 코드실행
+                    performUpload();
+                } )
+                .setNegativeButton("취소",(dialog,which) -> {
+                    //클릭시 코드실행
+                })
+                .create()
+                .show();
+
+    }
+
+    private void performUpload() {
+        Log.i("Upload", "업로드 작업이 완료되었습니다.");
+        Toast.makeText(requireContext(), "업로드가 완료되었습니다!", Toast.LENGTH_SHORT).show();
+    }
+
 
     private void navigateToFragment1() {
         NavController navController = Navigation.findNavController(requireView());
