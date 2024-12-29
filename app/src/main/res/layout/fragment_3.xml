@@ -183,6 +183,7 @@
     </GridLayout>
 
     <LinearLayout
+        android:id="@+id/uploadcontainer"
         android:layout_width="100dp"
         android:layout_height="50dp"
         app:layout_constraintTop_toBottomOf="@id/buttonGrid"
@@ -190,6 +191,7 @@
         app:layout_constraintRight_toRightOf="parent">
 
         <Button
+            android:id="@+id/uploadbutton"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="업로드!"
