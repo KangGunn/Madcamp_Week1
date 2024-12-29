@@ -1,22 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:padding="8dp" >
+    android:padding="8dp">
 
     <ImageView
         android:id="@+id/item_image"
         android:layout_width="match_parent"
         android:layout_height="150dp"
-        android:layout_weight="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         android:scaleType="centerCrop" />
 
     <TextView
         android:id="@+id/item_text1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/item_image"
         android:gravity="center"
         android:text="음식점 이름"
         android:textSize="14sp"
@@ -27,10 +30,12 @@
         android:id="@+id/item_text2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/item_text1"
+        app:layout_constraintStart_toEndOf="parent"
         android:gravity="center"
         android:text="한줄평"
         android:textSize="14sp"
         android:textColor="#000"
         android:paddingTop="4dp" />
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

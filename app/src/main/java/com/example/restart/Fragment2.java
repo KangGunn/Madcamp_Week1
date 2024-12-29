@@ -1,10 +1,13 @@
 package com.example.restart;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -48,6 +51,16 @@ public class Fragment2 extends Fragment {
         com.example.restart.CustomAdapter_tab2 adapter = new com.example.restart.CustomAdapter_tab2(requireContext(), data);
         grid.setAdapter(adapter);
 
+
+        //show map when click
+        grid.setOnItemClickListener((parent, view, position, id) -> {
+            // 클릭된 음식점 데이터 가져오기
+            com.example.restart.ItemData selectedItem = data.get(position);
+
+            // Google Maps Intent 생성
+            showLocationOnMap(selectedItem.getText1());
+        });
+
         return binding.getRoot();
     }
 
@@ -73,6 +86,26 @@ public class Fragment2 extends Fragment {
         }
         return data;
     }
+
+
+
+
+    private void showLocationOnMap(String address) {
+        // Google Maps Intent로 위치 표시
+        Uri gmmIntentUri = Uri.parse("geo:0,0?q=" + Uri.encode(address));
+        Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+        mapIntent.setPackage("com.google.android.apps.maps");
+
+        // Google Maps 앱이 있는지 확인 후 실행
+        if (mapIntent.resolveActivity(requireContext().getPackageManager()) != null) {
+            startActivity(mapIntent);
+        } else {
+            // 앱이 없는 경우 사용자에게 알림
+            Toast.makeText(requireContext(), "Google Maps 앱이 설치되어 있지 않습니다.", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+
 
     private void navigateToFragment1() {
         NavController navController = Navigation.findNavController(requireView());

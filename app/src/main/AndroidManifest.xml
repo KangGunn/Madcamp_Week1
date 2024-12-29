@@ -23,6 +23,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Restart"
         tools:targetApi="31" >
+
+<!--        for Google Map-->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyCB12JGyuoMrGZu0L_9aVplL9KY1Pp8yz4"/>
+
         <activity
             android:name=".MainActivity"
             android:exported="true" >
