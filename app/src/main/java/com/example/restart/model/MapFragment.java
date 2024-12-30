@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,11 +21,15 @@ import com.google.android.gms.maps.model.MarkerOptions;
 public class MapFragment extends Fragment implements OnMapReadyCallback {
 
     private GoogleMap mMap;
+    private TextView nameTextView;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_map, container, false);
+
+        nameTextView=rootView.findViewById(R.id.showtext);
+
 
         // SupportMapFragment 초기화
         SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.mapcontainer);
@@ -37,9 +42,10 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
             double latitude = args.getDouble("latitude", 37.5665); // 기본값은 서울
             double longitude = args.getDouble("longitude", 126.9780); // 기본값은 서울
             String name = args.getString("name", "Unknown");
-
             Log.d("MapFragment_HH", "Received Latitude: " + latitude + ", Longitude: " + longitude + ", Name: " + name);
 
+            //이름 표시
+            nameTextView.setText(name);
             // 지도 표시
             showLocationOnMap(latitude, longitude, name);
         }

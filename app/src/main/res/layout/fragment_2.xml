@@ -38,7 +38,7 @@
         app:layout_constraintStart_toStartOf="@id/grid"
         android:layout_margin="50dp"
         app:layout_constraintDimensionRatio="1:1"
-        android:layout_marginTop="16dp" />
+        android:layout_marginTop="16dp"/>
 
 
     <androidx.constraintlayout.widget.ConstraintLayout

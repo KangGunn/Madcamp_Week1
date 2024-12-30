@@ -64,8 +64,6 @@ public class CustomAdapter_tab2 extends BaseAdapter {
         textView1.setText(currentItem.getName());
         textView2.setText(currentItem.getComment());
 
-        double latitude = currentItem.getLatitude();
-        double longitude = currentItem.getLongitude();
 
         return convertView;
     }
