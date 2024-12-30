@@ -139,6 +139,24 @@
                 android:textColor="@color/black"
                 android:fontFamily="@font/pretendardstd_regular" />
 
+
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+
+        <!-- 추가 버튼 -->
+        <Button
+            android:id="@+id/add_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="음식점 추가" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
