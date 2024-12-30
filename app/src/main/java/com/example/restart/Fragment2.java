@@ -1,7 +1,5 @@
 package com.example.restart;
 
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,7 +14,6 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
 import com.example.restart.databinding.Fragment2Binding;
-import com.example.restart.model.RestaurantData;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -24,15 +21,13 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
-//add for type 2
-import com.example.restart.model.RestaurantData_tab2;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 public class Fragment2 extends Fragment {
 
     public Fragment2() {
-        //
+        // Default constructor
     }
 
     private Fragment2Binding binding;
@@ -41,71 +36,60 @@ public class Fragment2 extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = Fragment2Binding.inflate(inflater, container, false);
+
+        // Navigation Buttons
         binding.button21.setOnClickListener(v -> navigateToFragment1());
         binding.button23.setOnClickListener(v -> navigateToFragment3());
 
+        // GridView setup
         GridView grid = binding.grid;
 
-        List<com.example.restart.ItemData> data = loadRestaurantsFromJson();
+        List<com.example.restart.RestaurantData_tab2.Restaurant> data = loadRestaurantsFromJson();
 
         com.example.restart.CustomAdapter_tab2 adapter = new com.example.restart.CustomAdapter_tab2(requireContext(), data);
         grid.setAdapter(adapter);
 
-
-        //show map when click
+        // GridView item click listener
         grid.setOnItemClickListener((parent, view, position, id) -> {
-            // 클릭된 음식점 데이터 가져오기
-            com.example.restart.ItemData selectedItem = data.get(position);
+            com.example.restart.RestaurantData_tab2.Restaurant selectedItem = data.get(position);
 
-            // Google Maps Intent 생성
-            showLocationOnMap(selectedItem.getText1());
+            // Transition to MapFragment with data
+            Bundle bundle = new Bundle();
+            bundle.putDouble("latitude", selectedItem.getLatitude());
+            bundle.putDouble("longitude", selectedItem.getLongitude());
+            bundle.putString("name", selectedItem.getName());
+
+            model.MapFragment mapFragment = new MapFragment();
+            mapFragment.setArguments(bundle);
+
+            requireActivity().getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fragment_container, mapFragment)
+                    .addToBackStack(null)
+                    .commit();
         });
 
         return binding.getRoot();
     }
 
-    private List<com.example.restart.ItemData> loadRestaurantsFromJson(){
-        List<com.example.restart.ItemData> data = new ArrayList<>();
-        try{
-            //read Json from assets folder
+    private List<com.example.restart.RestaurantData_tab2.Restaurant> loadRestaurantsFromJson() {
+        List<com.example.restart.RestaurantData_tab2.Restaurant> data = new ArrayList<>();
+        try {
+            // Read JSON from assets folder
             InputStreamReader isr = new InputStreamReader(requireContext().getAssets().open("restaurants_tab2.json"));
             BufferedReader reader = new BufferedReader(isr);
 
-            //passing Json to GSON
             Gson gson = new Gson();
-            Type type = new TypeToken<RestaurantData_tab2>() {}.getType();
-            RestaurantData_tab2 restaurantData = gson.fromJson(reader,type);
+            Type type = new TypeToken<com.example.restart.RestaurantData_tab2>() {}.getType();
+            com.example.restart.RestaurantData_tab2 restaurantData = gson.fromJson(reader, type);
 
-            // JSON -> ItemData
-            for (RestaurantData_tab2.Restaurant restaurant : restaurantData.getRestaurants()) {
-                data.add(new com.example.restart.ItemData(restaurant.getImage(), restaurant.getName(), restaurant.getComment()));
-            }
-            //예외발생시
-        } catch (Exception e){
+            // Populate data list with Restaurant objects
+            data.addAll(restaurantData.getRestaurants());
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return data;
     }
-
-
-
-
-    private void showLocationOnMap(String address) {
-        // Google Maps Intent로 위치 표시
-        Uri gmmIntentUri = Uri.parse("geo:0,0?q=" + Uri.encode(address));
-        Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
-        mapIntent.setPackage("com.google.android.apps.maps");
-
-        // Google Maps 앱이 있는지 확인 후 실행
-        if (mapIntent.resolveActivity(requireContext().getPackageManager()) != null) {
-            startActivity(mapIntent);
-        } else {
-            // 앱이 없는 경우 사용자에게 알림
-            Toast.makeText(requireContext(), "Google Maps 앱이 설치되어 있지 않습니다.", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-
 
     private void navigateToFragment1() {
         NavController navController = Navigation.findNavController(requireView());

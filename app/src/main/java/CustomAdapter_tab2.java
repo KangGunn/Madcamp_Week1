@@ -16,10 +16,10 @@ import java.util.List;
 
 public class CustomAdapter_tab2 extends BaseAdapter {
     private Context context;
-    private List<ItemData> items;
+    private List<com.example.restart.RestaurantData_tab2.Restaurant> items;
 
     // 생성자
-    public CustomAdapter_tab2(Context context, List<ItemData> items) {
+    public CustomAdapter_tab2(Context context, List<com.example.restart.RestaurantData_tab2.Restaurant> items) {
         this.context = context;
         this.items = items;
     }
@@ -46,7 +46,7 @@ public class CustomAdapter_tab2 extends BaseAdapter {
         }
 
         // 현재 데이터 가져오기
-        ItemData currentItem = items.get(position);
+        com.example.restart.RestaurantData_tab2.Restaurant currentItem = items.get(position);
 
         // 레이아웃의 뷰 참조
         ImageView imageView = convertView.findViewById(R.id.item_image);
@@ -61,8 +61,11 @@ public class CustomAdapter_tab2 extends BaseAdapter {
                 .override(150,150)
                 .into(imageView);
 
-        textView1.setText(currentItem.getText1());
-        textView2.setText(currentItem.getText2());
+        textView1.setText(currentItem.getName());
+        textView2.setText(currentItem.getComment());
+
+        double latitude = currentItem.getLatitude();
+        double longitude = currentItem.getLongitude();
 
         return convertView;
     }

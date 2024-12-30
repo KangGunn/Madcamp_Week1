@@ -13,14 +13,15 @@ public class RestaurantData_tab2 {
         private String name;
         private String image;
         private String comment;
-        private String address; // 위치 정보 추가
+        private double latitude; // 위치 정보 추가(위도)
+        private double longitude; // 위치 정보 추가(경도)
 
         // Getters
         public String getName() {
             return name;
         }
 
-        public String getImage() {
+        public String getImageURL() {
             return image;
         }
 
@@ -28,8 +29,13 @@ public class RestaurantData_tab2 {
             return comment;
         }
 
-        public String getAddress() {
-            return address;
+        public double getLatitude() {
+            return latitude;
         }
+
+        public double getLongitude(){
+            return longitude;
+        }
+
     }
 }

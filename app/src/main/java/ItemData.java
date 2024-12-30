@@ -3,6 +3,8 @@ public class ItemData {
     private String imageURL;  // 이미지 리소스 ID
     private String text1;    // 텍스트1
     private String text2;    // 텍스트2
+    private double latitude; //경도
+    private double longitude; //위도
 
     // 생성자
     public ItemData(String imageURL, String text1, String text2) {
@@ -22,6 +24,13 @@ public class ItemData {
 
     public String getText2() {
         return text2;
+    }
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public double getLongitude() {
+        return longitude;
     }
 }
 
