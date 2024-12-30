@@ -13,6 +13,7 @@ public class RestaurantData {
         private String name;
         private String phone;
         private String img;
+        private String type;
 
         public String getName() {
             return name;
@@ -22,5 +23,6 @@ public class RestaurantData {
             return phone;
         }
         public String getImage() { return img; }
+        public String getType() { return type; }
     }
 }

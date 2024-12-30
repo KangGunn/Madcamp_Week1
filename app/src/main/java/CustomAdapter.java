@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -55,16 +56,32 @@ public class CustomAdapter extends BaseAdapter {
         ImageView imageView = convertView.findViewById(R.id.item_image);
         TextView textView1 = convertView.findViewById(R.id.item_text1);
         TextView textView2 = convertView.findViewById(R.id.item_text2);
+        FrameLayout imageBackground = convertView.findViewById(R.id.item_image_background);
 
         // 데이터 설정
-        Glide.with(context)
-                .load(currentItem.getImageURL())
-                .placeholder(R.drawable.placeholder)
-                .error(R.drawable.error)
-                .into(imageView);
+//        Glide.with(context)
+//                .load(currentItem.getImageURL())
+//                .placeholder(R.drawable.placeholder)
+//                .error(R.drawable.error)
+//                .into(imageView);
 
         textView1.setText(currentItem.getText1());
         textView2.setText(currentItem.getText2());
+
+        switch (currentItem.getType()) {
+            case "restaurant":
+                imageBackground.setBackgroundResource(R.drawable.restaurant_round);
+                imageView.setImageResource(R.drawable.restaurant_icon);
+                break;
+            case "pub":
+                imageBackground.setBackgroundResource(R.drawable.pub_round);
+                imageView.setImageResource(R.drawable.pub_icon);
+                break;
+            case "cafe":
+                imageBackground.setBackgroundResource(R.drawable.cafe_round);
+                imageView.setImageResource(R.drawable.cafe_icon);
+                break;
+        }
 
         return convertView;
     }

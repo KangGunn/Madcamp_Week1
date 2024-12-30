@@ -243,34 +243,107 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:gravity="center"
-        android:layout_margin="0dp">
+        android:background="#E5E4E2">
 
-        <Button
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/button31"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintEnd_toStartOf="@id/button32"
+            android:padding="8dp"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/button32"
             app:layout_constraintTop_toTopOf="parent"
-            android:text="Button 31" />
+            app:layout_constraintBottom_toBottomOf="parent">
 
-        <Button
+            <ImageView
+                android:id="@+id/button_icon1"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginBottom="4dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:src="@drawable/button1_icon"/>
+
+            <TextView
+                android:id="@+id/button_text1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/button_icon1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:text="@string/tab1_title"
+                android:textSize="11sp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/pretendardstd_regular" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/button32"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:padding="8dp"
             app:layout_constraintStart_toEndOf="@id/button31"
             app:layout_constraintEnd_toStartOf="@id/button33"
             app:layout_constraintTop_toTopOf="parent"
-            android:text="Button 32" />
+            app:layout_constraintBottom_toBottomOf="parent">
 
-        <Button
+            <ImageView
+                android:id="@+id/button_icon2"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginBottom="4dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:src="@drawable/button2_icon"/>
+
+            <TextView
+                android:id="@+id/button_text2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/button_icon2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:text="@string/tab2_title"
+                android:textSize="11sp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/pretendardstd_regular" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/button33"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:padding="8dp"
             app:layout_constraintStart_toEndOf="@id/button32"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:text="Button 33" />
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <ImageView
+                android:id="@+id/button_icon3"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginBottom="4dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:src="@drawable/button3_icon"/>
+
+            <TextView
+                android:id="@+id/button_text3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/button_icon3"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:text="@string/tab3_title"
+                android:textSize="11sp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/pretendardstd_regular" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

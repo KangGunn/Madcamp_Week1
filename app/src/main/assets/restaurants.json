@@ -3,102 +3,122 @@
     {
       "name": "두발네발",
       "phone": "042-863-1019",
-      "img": "https://cdn.icon-icons.com/icons2/2510/PNG/512/beer_mug_alcohol_drink_beverage_pub_icon_150779.png"
+      "img": "https://cdn.icon-icons.com/icons2/2510/PNG/512/beer_mug_alcohol_drink_beverage_pub_icon_150779.png",
+      "type": "pub"
     },
     {
       "name": "잇마이타이",
       "phone": "042-335-5466",
-      "img": "https://i.pinimg.com/originals/4e/24/f5/4e24f523182e09376bfe8424d556610a.png"
+      "img": "https://i.pinimg.com/originals/4e/24/f5/4e24f523182e09376bfe8424d556610a.png",
+      "type": "restaurant"
     },
     {
       "name": "폼프리츠",
       "phone": "0517-1310-3678",
-      "img": "https://cdn.icon-icons.com/icons2/2510/PNG/512/beer_mug_alcohol_drink_beverage_pub_icon_150779.png"
+      "img": "https://cdn.icon-icons.com/icons2/2510/PNG/512/beer_mug_alcohol_drink_beverage_pub_icon_150779.png",
+      "type": "pub"
     },
     {
       "name": "엉클부대찌개 어은점",
       "phone": "042-867-0102",
-      "img": "https://i.pinimg.com/originals/4e/24/f5/4e24f523182e09376bfe8424d556610a.png"
+      "img": "https://i.pinimg.com/originals/4e/24/f5/4e24f523182e09376bfe8424d556610a.png",
+      "type": "restaurant"
     },
     {
       "name": "왕비성",
       "phone": "042-862-9292",
-      "img": "https://i.pinimg.com/originals/4e/24/f5/4e24f523182e09376bfe8424d556610a.png"
+      "img": "https://i.pinimg.com/originals/4e/24/f5/4e24f523182e09376bfe8424d556610a.png",
+      "type": "restaurant"
     },
     {
       "name": "잇텐",
       "phone": "0507-1308-8593",
-      "img": "https://i.pinimg.com/originals/4e/24/f5/4e24f523182e09376bfe8424d556610a.png"
+      "img": "https://i.pinimg.com/originals/4e/24/f5/4e24f523182e09376bfe8424d556610a.png",
+      "type": "restaurant"
     },
     {
       "name": "베리신주쿠",
       "phone": "042-863-7339",
-      "img": "https://i.pinimg.com/originals/4e/24/f5/4e24f523182e09376bfe8424d556610a.png"
+      "img": "https://i.pinimg.com/originals/4e/24/f5/4e24f523182e09376bfe8424d556610a.png",
+      "type": "restaurant"
     },
     {
       "name": "아소부",
       "phone": "042-825-2995",
-      "img": "https://i.pinimg.com/originals/4e/24/f5/4e24f523182e09376bfe8424d556610a.png"
+      "img": "https://i.pinimg.com/originals/4e/24/f5/4e24f523182e09376bfe8424d556610a.png",
+      "type": "restaurant"
     },
     {
       "name": "메가MGC커피 대전유성구청점",
       "phone": "0507-0289-9664",
-      "img": "https://img.icons8.com/ios7/600w/cafe.png"
+      "img": "https://img.icons8.com/ios7/600w/cafe.png",
+      "type": "cafe"
     },
     {
       "name": "마쯔미라멘",
       "phone": "0507-1332-0953",
-      "img": "https://i.pinimg.com/originals/4e/24/f5/4e24f523182e09376bfe8424d556610a.png"
+      "img": "https://i.pinimg.com/originals/4e/24/f5/4e24f523182e09376bfe8424d556610a.png",
+      "type": "restaurant"
     },
     {
       "name": "투다리 어은점",
       "phone": "042-863-8569",
-      "img": "https://cdn.icon-icons.com/icons2/2510/PNG/512/beer_mug_alcohol_drink_beverage_pub_icon_150779.png"
+      "img": "https://cdn.icon-icons.com/icons2/2510/PNG/512/beer_mug_alcohol_drink_beverage_pub_icon_150779.png",
+      "type": "pub"
     },
     {
       "name": "꼬꾸마시 어은점",
       "phone": "042-863-0633",
-      "img": "https://cdn.icon-icons.com/icons2/2510/PNG/512/beer_mug_alcohol_drink_beverage_pub_icon_150779.png"
+      "img": "https://cdn.icon-icons.com/icons2/2510/PNG/512/beer_mug_alcohol_drink_beverage_pub_icon_150779.png",
+      "type": "pub"
     },
     {
       "name": "스타벅스 대전유성구청점",
       "phone": "1522-3232",
-      "img": "https://img.icons8.com/ios7/600w/cafe.png"
+      "img": "https://img.icons8.com/ios7/600w/cafe.png",
+      "type": "cafe"
     },
     {
       "name": "도미노피자 유성점",
       "phone": "042-861-3082",
-      "img": "https://i.pinimg.com/originals/4e/24/f5/4e24f523182e09376bfe8424d556610a.png"
+      "img": "https://i.pinimg.com/originals/4e/24/f5/4e24f523182e09376bfe8424d556610a.png",
+      "type": "restaurant"
     },
     {
       "name": "BBQ치킨 대전어은점",
       "phone": "042-863-9292",
-      "img": "https://i.pinimg.com/originals/4e/24/f5/4e24f523182e09376bfe8424d556610a.png"
+      "img": "https://i.pinimg.com/originals/4e/24/f5/4e24f523182e09376bfe8424d556610a.png",
+      "type": "restaurant"
     },
     {
       "name": "신샤브",
       "phone": "0507-1302-4709",
-      "img": "https://i.pinimg.com/originals/4e/24/f5/4e24f523182e09376bfe8424d556610a.png"
+      "img": "https://i.pinimg.com/originals/4e/24/f5/4e24f523182e09376bfe8424d556610a.png",
+      "type": "restaurant"
     },
     {
       "name": "하레",
       "phone": "070-8126-4139",
-      "img": "https://i.pinimg.com/originals/4e/24/f5/4e24f523182e09376bfe8424d556610a.png"
+      "img": "https://i.pinimg.com/originals/4e/24/f5/4e24f523182e09376bfe8424d556610a.png",
+      "type": "restaurant"
     },
     {
       "name": "훌랄라참숯바베큐치킨 어은1점",
       "phone": "042-863-5577",
-      "img": "https://i.pinimg.com/originals/4e/24/f5/4e24f523182e09376bfe8424d556610a.png"
+      "img": "https://i.pinimg.com/originals/4e/24/f5/4e24f523182e09376bfe8424d556610a.png",
+      "type": "restaurant"
     },
     {
       "name": "어은스시",
       "phone": "042-863-5306",
-      "img": "https://i.pinimg.com/originals/4e/24/f5/4e24f523182e09376bfe8424d556610a.png"
+      "img": "https://i.pinimg.com/originals/4e/24/f5/4e24f523182e09376bfe8424d556610a.png",
+      "type": "restaurant"
     },
     {
       "name": "화통",
       "phone": "042-863-0880",
-      "img": "https://i.pinimg.com/originals/4e/24/f5/4e24f523182e09376bfe8424d556610a.png"
+      "img": "https://i.pinimg.com/originals/4e/24/f5/4e24f523182e09376bfe8424d556610a.png",
+      "type": "restaurant"
     }
   ]
 }

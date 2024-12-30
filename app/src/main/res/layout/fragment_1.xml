@@ -16,7 +16,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:text="나의 식당"
+        android:text="@string/tab1_title"
         android:textSize="30sp"
         android:gravity="center" />
 
@@ -27,7 +27,7 @@
         android:layout_weight="1"
         android:dividerHeight="5dp"
         app:layout_constraintTop_toBottomOf="@id/title"
-        app:layout_constraintBottom_toTopOf="@id/buttons"/>
+        app:layout_constraintBottom_toTopOf="@id/buttons" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/buttons"
@@ -41,50 +41,104 @@
         android:gravity="center"
         android:background="#E5E4E2">
 
-        <android.widget.Button
-            android:id="@+id/button1"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/button11"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toLeftOf="@id/button12"
+            android:padding="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/button12"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:background="@drawable/button_background"
-            android:drawableLeft="@drawable/button1_image_resized"
-            android:text="나의 식당"
-            android:textColor="#666362"
-            android:textSize="15sp" />
+            app:layout_constraintBottom_toBottomOf="parent">
 
-        <android.widget.Button
+            <ImageView
+                android:id="@+id/button_icon1"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginBottom="4dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:src="@drawable/button1_icon"/>
+
+            <TextView
+                android:id="@+id/button_text1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/button_icon1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:text="@string/tab1_title"
+                android:textSize="11sp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/pretendardstd_regular" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/button12"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            app:layout_constraintLeft_toRightOf="@id/button1"
-            app:layout_constraintRight_toLeftOf="@id/button13"
+            android:padding="8dp"
+            app:layout_constraintStart_toEndOf="@id/button11"
+            app:layout_constraintEnd_toStartOf="@id/button13"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:background="@drawable/button_background"
-            android:drawableLeft="@drawable/button2_image_resized"
-            android:text="추천 식당"
-            android:textColor="#666362"
-            android:textSize="15sp" />
+            app:layout_constraintBottom_toBottomOf="parent">
 
-        <android.widget.Button
+            <ImageView
+                android:id="@+id/button_icon2"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginBottom="4dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:src="@drawable/button2_icon"/>
+
+            <TextView
+                android:id="@+id/button_text2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/button_icon2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:text="@string/tab2_title"
+                android:textSize="11sp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/pretendardstd_regular" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/button13"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            app:layout_constraintLeft_toRightOf="@id/button12"
-            app:layout_constraintRight_toRightOf="parent"
+            android:padding="8dp"
+            app:layout_constraintStart_toEndOf="@id/button12"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:background="@drawable/button_background"
-            android:drawableLeft="@drawable/button3_image_resized"
-            android:text="식당 추가"
-            android:textColor="#666362"
-            android:textSize="15sp" />
+            app:layout_constraintBottom_toBottomOf="parent">
 
+            <ImageView
+                android:id="@+id/button_icon3"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginBottom="4dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:src="@drawable/button3_icon"/>
+
+            <TextView
+                android:id="@+id/button_text3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/button_icon3"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:text="@string/tab3_title"
+                android:textSize="11sp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/pretendardstd_regular" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
