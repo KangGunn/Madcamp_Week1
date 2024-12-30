@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -70,6 +71,7 @@ public class Fragment2 extends Fragment {
                     .replace(R.id.mapcontainer, mapFragment)
                     .addToBackStack(null)
                     .commit();
+
         });
 
         return binding.getRoot();

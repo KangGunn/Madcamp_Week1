@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -49,6 +50,15 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
             // 지도 표시
             showLocationOnMap(latitude, longitude, name);
         }
+
+        //close button
+        ImageButton closeButton = rootView.findViewById(R.id.close_button);
+        closeButton.setOnClickListener(v -> {
+            requireActivity().getSupportFragmentManager()
+                    .beginTransaction()
+                    .remove(this) // 현재 MapFragment를 제거
+                    .commit();
+        });
 
         return rootView;
     }
