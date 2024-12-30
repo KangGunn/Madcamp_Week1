@@ -1,6 +1,7 @@
 package com.example.restart;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,7 +32,33 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
             mapFragment.getMapAsync(this);
         }
 
+        Bundle args = getArguments();
+        if (args != null) {
+            double latitude = args.getDouble("latitude", 37.5665); // 기본값은 서울
+            double longitude = args.getDouble("longitude", 126.9780); // 기본값은 서울
+            String name = args.getString("name", "Unknown");
+
+            Log.d("MapFragment_HH", "Received Latitude: " + latitude + ", Longitude: " + longitude + ", Name: " + name);
+
+            // 지도 표시
+            showLocationOnMap(latitude, longitude, name);
+        }
+
         return rootView;
+    }
+
+    private void showLocationOnMap(double latitude, double longitude, String name) {
+        SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.showmap);
+        if (mapFragment != null) {
+            mapFragment.getMapAsync(googleMap -> {
+                LatLng location = new LatLng(latitude, longitude);
+
+                Log.d("showLocationOnMap", "Adding marker at Latitude: " + latitude + ", Longitude: " + longitude + ", Name: " + name);
+
+                googleMap.addMarker(new MarkerOptions().position(location).title(name));
+                googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location, 15));
+            });
+        }
     }
 
     @Override

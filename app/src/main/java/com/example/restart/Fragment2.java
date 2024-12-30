@@ -54,6 +54,8 @@ public class Fragment2 extends Fragment {
         grid.setOnItemClickListener((parent, view, position, id) -> {
             com.example.restart.RestaurantData_tab2.Restaurant selectedItem = data.get(position);
 
+            Log.d("MapData", "Latitude: " + selectedItem.getLatitude() + ", Longitude: " + selectedItem.getLongitude() + ", Name: " + selectedItem.getName());
+
             // Transition to MapFragment with data
             Bundle bundle = new Bundle();
             bundle.putDouble("latitude", selectedItem.getLatitude());
