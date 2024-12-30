@@ -1,6 +1,7 @@
 package com.example.restart;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -59,12 +60,12 @@ public class Fragment2 extends Fragment {
             bundle.putDouble("longitude", selectedItem.getLongitude());
             bundle.putString("name", selectedItem.getName());
 
-            model.MapFragment mapFragment = new MapFragment();
+            com.example.restart.MapFragment  mapFragment = new com.example.restart.MapFragment();
             mapFragment.setArguments(bundle);
 
             requireActivity().getSupportFragmentManager()
                     .beginTransaction()
-                    .replace(R.id.fragment_container, mapFragment)
+                    .replace(R.id.mapcontainer, mapFragment)
                     .addToBackStack(null)
                     .commit();
         });
@@ -84,7 +85,11 @@ public class Fragment2 extends Fragment {
             com.example.restart.RestaurantData_tab2 restaurantData = gson.fromJson(reader, type);
 
             // Populate data list with Restaurant objects
-            data.addAll(restaurantData.getRestaurants());
+            for (com.example.restart.RestaurantData_tab2.Restaurant restaurant : restaurantData.getRestaurants()) {
+                Log.d("RestaurantData", "Loaded restaurant: " + restaurant.getName()); // 디버깅 로그
+                Log.d("GlideDebug", "Image URL: " + restaurant.getImageURL());
+                data.add(restaurant);
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }

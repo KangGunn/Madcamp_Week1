@@ -11,7 +11,7 @@ public class RestaurantData_tab2 {
 
     public static class Restaurant {
         private String name;
-        private String image;
+        private String imageUrl;
         private String comment;
         private double latitude; // 위치 정보 추가(위도)
         private double longitude; // 위치 정보 추가(경도)
@@ -22,7 +22,7 @@ public class RestaurantData_tab2 {
         }
 
         public String getImageURL() {
-            return image;
+            return imageUrl;
         }
 
         public String getComment() {
