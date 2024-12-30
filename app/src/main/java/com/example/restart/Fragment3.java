@@ -64,7 +64,7 @@ public class Fragment3 extends Fragment {
         setupHashtagButtons();
 
 
-        //add 12/29
+        //add 12/29 - 업로드 버튼
         binding.uploadbutton.setOnClickListener(v -> showUploadDialog());
 
         return binding.getRoot();
@@ -194,6 +194,25 @@ public class Fragment3 extends Fragment {
     private void performUpload() {
         Log.i("Upload", "업로드 작업이 완료되었습니다.");
         Toast.makeText(requireContext(), "업로드가 완료되었습니다!", Toast.LENGTH_SHORT).show();
+
+        // Updated at 12.30
+        // hashtag reset
+        int[] buttonIds = {
+                R.id.button1, R.id.button2, R.id.button3, R.id.button4, R.id.button5,
+                R.id.button6, R.id.button7, R.id.button8, R.id.button9, R.id.button10
+        };
+
+        for (int id : buttonIds) {
+            Button button = binding.getRoot().findViewById(id);
+            if (button != null) {
+                button.setSelected(false);
+            }
+        }
+        // image reset
+        binding.imageView3.setImageResource(0);
+        binding.clickPromptText.setVisibility(View.VISIBLE);
+        // text reset
+        binding.Titletext.setText("");
     }
 
 
