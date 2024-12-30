@@ -26,13 +26,10 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:dividerHeight="5dp"
+        app:layout_constraintBottom_toTopOf="@id/buttons"
         app:layout_constraintTop_toBottomOf="@id/title"
-        app:layout_constraintBottom_toTopOf="@id/buttons"/>
+        tools:layout_editor_absoluteX="-34dp" />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="@color/black" />
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
