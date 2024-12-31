@@ -228,7 +228,9 @@ public class Fragment1 extends Fragment {
                 restaurant.setImage(item.getImageURL());
                 restaurant.setType(item.getType());
                 restaurantList.add(restaurant);
+                Log.d("Save Data List", "Data list saved to: " + item.getText1());
             }
+
 
             // `RestaurantData` 객체 생성 및 설정
             RestaurantData restaurantData = new RestaurantData();
@@ -423,20 +425,89 @@ public class Fragment1 extends Fragment {
 
     private void deleteRestaurant(int position) {
         try {
-            // 데이터 삭제L
-            data.remove(position);
-            Log.d("Delete Restsdfas dfasfaurant", "Restaurant deleted at position: " + position);
-            // JSON 파일 업데이트
-            saveDataListToFile();
-            loadDataFromFile();
-            adapter.updateData(data); // 어댑터 업데이트
+            // 1. 삭제 대상 항목 가져오기
+            String nameToDelete = data.get(position).getText1(); // 항목 이름 가져오기
 
-            Log.d("Delete Restaurant", "Restaurant deleted at position: " + position);
+            // 2. 메인 데이터에서 항목 삭제
+            data.remove(position);
+
+            // 3. restaurants.json에서 항목 삭제
+            removeFromJsonFile("restaurants.json", nameToDelete);
+
+            // 4. added_restaurants.json에서 항목 삭제
+            removeFromJsonFile("added_restaurants.json", nameToDelete);
+
+            // 5. 어댑터 갱신
+            adapter.updateData(data);
+
+            Log.d("Delete Restaurant", "Restaurant deleted: " + nameToDelete);
         } catch (Exception e) {
             Log.e("Delete Restaurant", "Error deleting restaurant: " + e.getMessage());
             e.printStackTrace();
         }
     }
+
+    private void removeFromJsonFile(String fileName, String nameToDelete) {
+        try {
+            // 파일 읽기
+            String json = readJsonFromFile(fileName);
+            if (json == null) return;
+
+            Gson gson = new Gson();
+            if (fileName.equals("restaurants.json")) {
+                // restaurants.json 삭제 로직
+                Type type = new TypeToken<RestaurantData>() {}.getType();
+                RestaurantData restaurantData = gson.fromJson(json, type);
+
+                // 이름 일치 항목 제거
+                List<RestaurantData.Restaurant> filteredList = new ArrayList<>();
+                for (RestaurantData.Restaurant restaurant : restaurantData.getRestaurants()) {
+                    if (!restaurant.getName().equals(nameToDelete)) {
+                        filteredList.add(restaurant);
+                    }
+                }
+
+                // 갱신된 리스트 저장
+                restaurantData.setRestaurants(filteredList);
+                writeJsonToInternalStorage(gson.toJson(restaurantData), fileName);
+
+            } else if (fileName.equals("added_restaurants.json")) {
+                // added_restaurants.json 삭제 로직
+                Type type = new TypeToken<List<com.example.restart.ItemData>>() {}.getType();
+                List<com.example.restart.ItemData> itemList = gson.fromJson(json, type);
+
+                // 이름 일치 항목 제거
+                List<com.example.restart.ItemData> filteredList = new ArrayList<>();
+                for (com.example.restart.ItemData item : itemList) {
+                    if (!item.getText1().equals(nameToDelete)) {
+                        filteredList.add(item);
+                    }
+                }
+
+                // 갱신된 리스트 저장
+                writeJsonToInternalStorage(gson.toJson(filteredList), fileName);
+            }
+        } catch (Exception e) {
+            Log.e("Remove From JSON", "Error removing from " + fileName + ": " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    private void writeJsonToInternalStorage(String jsonString, String fileName) {
+        try {
+            File file = new File(requireContext().getFilesDir(), fileName);
+            FileOutputStream fos = new FileOutputStream(file);
+            fos.write(jsonString.getBytes());
+            fos.close();
+            Log.d("Write JSON", "File updated: " + fileName);
+        } catch (Exception e) {
+            Log.e("Write JSON", "Error writing to " + fileName + ": " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+
+
 
 
 
