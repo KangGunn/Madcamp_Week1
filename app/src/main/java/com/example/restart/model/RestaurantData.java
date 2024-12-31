@@ -1,13 +1,16 @@
-//RestaurantData
 package com.example.restart.model;
 
 import java.util.List;
 
 public class RestaurantData {
-    private List<Restaurant> restaurants;
+    private List<Restaurant> items;
 
     public List<Restaurant> getRestaurants() {
-        return restaurants;
+        return items;
+    }
+
+    public void setRestaurants(List<Restaurant> items) { // `items` 리스트를 설정
+        this.items = items;
     }
 
     public static class Restaurant {
@@ -23,11 +26,16 @@ public class RestaurantData {
         public String getPhone() {
             return phone;
         }
-        public String getImage() { return img; }
-        public String getType() { return type; }
 
+        public String getImage() {
+            return img;
+        }
 
-        //setter 매서드
+        public String getType() {
+            return type;
+        }
+
+        // Setter 메서드
         public void setName(String name) {
             this.name = name;
         }

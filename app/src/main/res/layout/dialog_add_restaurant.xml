@@ -1,34 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/editName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:hint="Restaurant Name" />
 
-        <EditText
-            android:id="@+id/input_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="음식점 이름"
-            android:inputType="text" />
+    <EditText
+        android:id="@+id/editPhone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Phone Number"
+        android:inputType="phone" />
 
-        <EditText
-            android:id="@+id/input_phone"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="전화번호"
-            android:inputType="phone" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Select Type:"
+        android:paddingTop="8dp"
+        android:textSize="16sp" />
 
-        <EditText
-            android:id="@+id/input_tag"
-            android:layout_width="match_parent"
+    <RadioGroup
+        android:id="@+id/radioGroupType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/radioCafe"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="음식점 종류 (예: 한식, 중식)"
-            android:inputType="text" />
-    </LinearLayout>
+            android:text="Cafe" />
+
+        <RadioButton
+            android:id="@+id/radioPub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pub" />
+
+        <RadioButton
+            android:id="@+id/radioRestaurant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Restaurant" />
+    </RadioGroup>
 
 </LinearLayout>

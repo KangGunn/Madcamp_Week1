@@ -8,13 +8,13 @@ import com.example.restart.ItemData;
 import com.example.restart.CustomAdapter;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 
 import java.util.ArrayList;
 import java.util.List;
-
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements AddRestaurantDialog.AddRestaurantListener {
 
     private View selectedIndicator;
 
@@ -44,5 +44,19 @@ public class MainActivity extends AppCompatActivity {
         ObjectAnimator animatorX = ObjectAnimator.ofFloat(selectedIndicator, "translationX", targetX);
         animatorX.setDuration(300);
         animatorX.start();
+    }
+
+    @Override
+    public void onRestaurantAdded(String name, String phone, String imageURL, String type) {
+        // 현재 보이는 Fragment가 Fragment1인지 확인
+        NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment);
+        if (navHostFragment != null) {
+            Fragment fragment = navHostFragment.getChildFragmentManager().getPrimaryNavigationFragment();
+            if (fragment instanceof Fragment1) {
+                // Fragment1의 addNewRestaurant 호출
+                ((Fragment1) fragment).handleNewRestaurant(name, phone, imageURL, type);
+
+            }
+        }
     }
 }

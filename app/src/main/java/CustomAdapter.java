@@ -19,6 +19,7 @@ import android.widget.TextView;
 
 import com.example.restart.ItemData;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CustomAdapter extends BaseAdapter {
@@ -71,7 +72,7 @@ public class CustomAdapter extends BaseAdapter {
         textView1.setText(currentItem.getText1());
         textView2.setText(currentItem.getText2());
 
-        switch (currentItem.getType()) {
+        switch (currentItem.getType().toLowerCase()) {
             case "restaurant":
                 imageBackground.setBackgroundResource(R.drawable.restaurant_round);
                 imageView.setImageResource(R.drawable.restaurant_icon);
@@ -91,8 +92,13 @@ public class CustomAdapter extends BaseAdapter {
 
     public void updateData(List<ItemData> newItems) {
         try {
+
+            List<ItemData> newDataCopy = new ArrayList<>(newItems);
+            Log.d("Load D3123123ata", "Loaded JSON: " + newItems);
             this.items.clear(); // 기존 데이터 제거
-            this.items.addAll(newItems); // 새로운 데이터 추가
+            Log.d("Load D3123123ata", "Loaded JSON: " + newItems);
+            this.items.addAll(newDataCopy); // 새로운 데이터 추가
+            Log.d("Load D3123123ata", "Loaded JSON: " + newItems);
             notifyDataSetChanged(); // 어댑터 갱신
         } catch (Exception e) {
             e.printStackTrace();
