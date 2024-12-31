@@ -506,11 +506,6 @@ public class Fragment1 extends Fragment {
         }
     }
 
-
-
-
-
-
     public void handleNewRestaurant(String name, String phone, String imageURL, String type) {
         addNewRestaurant(name, phone, imageURL, type);
         saveDataListToFile();
