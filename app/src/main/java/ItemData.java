@@ -1,46 +1,42 @@
+
+
 package com.example.restart;
-
-import java.util.List;
 public class ItemData {
-    private List<Item> items; // JSON의 최상위 키 "items"와 매핑
+    private String imageURL;  // 이미지 리소스 ID
+    private String text1;    // 텍스트1
+    private String text2;    // 텍스트2
+    private String type;     // 음식점 종류
+    private double latitude; //경도
+    private double longitude; //위도
 
-    public List<Item> getItems() {
-        return items; // "items" 데이터 반환
+    // 생성자
+    public ItemData(String imageURL, String text1, String text2, String type) {
+        this.imageURL = imageURL;
+        this.text1 = text1;
+        this.text2 = text2;
+        this.type = type;
     }
 
-    public void setItems(List<Item> items) {
-        this.items = items;
+    // Getter 메서드
+    public String getImageURL() {
+        return imageURL;
     }
 
-    public static class Item {
-        private String img;
-        private String name;
-        private String phone;
-        private String type;
+    public String getText1() {
+        return text1;
+    }
 
-        // 생성자
-        public Item(String img, String name, String phone, String type) {
-            this.img = img;
-            this.name = name;
-            this.phone = phone;
-            this.type = type;
-        }
+    public String getText2() {
+        return text2;
+    }
+    public String getType() { return type; }
+    public double getLatitude() {
+        return latitude;
+    }
 
-        // Getter 메서드
-        public String getImg() {
-            return img;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        public String getPhone() {
-            return phone;
-        }
-
-        public String getType() {
-            return type;
-        }
+    public double getLongitude() {
+        return longitude;
     }
 }
+
+

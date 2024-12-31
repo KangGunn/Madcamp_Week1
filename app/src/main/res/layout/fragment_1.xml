@@ -154,7 +154,7 @@
 
         <!-- 추가 버튼 -->
         <Button
-            android:id="@+id/add_button"
+            android:id="@+id/buttonAddRestaurant"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="음식점 추가" />

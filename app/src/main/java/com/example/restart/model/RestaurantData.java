@@ -1,3 +1,4 @@
+//RestaurantData
 package com.example.restart.model;
 
 import java.util.List;
@@ -24,5 +25,23 @@ public class RestaurantData {
         }
         public String getImage() { return img; }
         public String getType() { return type; }
+
+
+        //setter 매서드
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public void setPhone(String phone) {
+            this.phone = phone;
+        }
+
+        public void setImage(String img) {
+            this.img = img;
+        }
+
+        public void setType(String type) {
+            this.type = type;
+        }
     }
 }

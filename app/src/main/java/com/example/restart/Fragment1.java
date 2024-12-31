@@ -1,14 +1,14 @@
+//Fragement
+
 package com.example.restart;
 
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,12 +16,17 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
+import com.example.restart.CustomAdapter;
 import com.example.restart.databinding.Fragment1Binding;
+import com.example.restart.model.RestaurantData;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.lang.reflect.GenericSignatureFormatError;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
@@ -40,111 +45,171 @@ public class Fragment1 extends Fragment {
 
     private Fragment1Binding binding;
 
-    private void debugJsonFile() {
-        File file = new File(requireContext().getFilesDir(), "restaurants.json");
-        if (file.exists()) {
-            try (FileReader reader = new FileReader(file)) {
-                BufferedReader bufferedReader = new BufferedReader(reader);
-                StringBuilder builder = new StringBuilder();
-                String line;
-                while ((line = bufferedReader.readLine()) != null) {
-                    builder.append(line);
-                }
-                Log.d("DEBUG", "JSON File Content: " + builder.toString());
-            } catch (Exception e) {
-                Log.e("DEBUG", "Error reading JSON file: " + e.getMessage());
-                e.printStackTrace();
-            }
-        } else {
-            Log.e("DEBUG", "JSON file not found in internal storage.");
-        }
-    }
-
-
+    private CustomAdapter adapter;
+    private List<com.example.restart.ItemData> data;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = Fragment1Binding.inflate(inflater, container, false);
 
-        debugJsonFile();
-        // `List<ItemData>` 데이터 로드
-        List<com.example.restart.ItemData> data = loadRestaurantsFromJson();
 
-        // 어댑터 설정
-        com.example.restart.CustomAdapter adapter = new com.example.restart.CustomAdapter(requireContext(), data);
-        binding.list.setAdapter(adapter);
+        copyJsonToInternalStorage();
 
-        // ListView 클릭 리스너 추가
-        binding.list.setOnItemClickListener((parent, view, position, id) -> {
-            // 선택된 ItemData 객체
-            com.example.restart.ItemData selectedData = data.get(position);
+        binding.button12.setOnClickListener(v -> navigateToFragment2());
+        binding.button13.setOnClickListener(v -> navigateToFragment3());
 
-            // ItemData 내부의 첫 번째 Item으로 처리 (예제)
-            if (selectedData.getItems() != null && !selectedData.getItems().isEmpty()) {
-                com.example.restart.ItemData.Item firstItem = selectedData.getItems().get(0);
+        ListView list = binding.list;
 
-                // 전화 걸기
-                makePhoneCall(firstItem.getPhone());
-            } else {
-                Toast.makeText(requireContext(), "전화번호가 없습니다.", Toast.LENGTH_SHORT).show();
-            }
+        data = loadRestaurantsFromJson();
+
+        // 커스텀 어댑터 설정
+        adapter = new CustomAdapter(requireContext(), data);
+        list.setAdapter(adapter);
+
+        binding.buttonAddRestaurant.setOnClickListener(v -> {
+            addNewRestaurant("New Restaurant", "123-456-7890", "https://example.com/image.jpg", "cafe");
+            saveDataListToFile();
         });
 
         return binding.getRoot();
     }
 
-
     //Json -> data로 전달
-    private List<com.example.restart.ItemData> loadRestaurantsFromJson() {
-        List<com.example.restart.ItemData.Item> data = new ArrayList<>();
-        try {
-            File file = new File(requireContext().getFilesDir(), "restaurants.json");
-            if (!file.exists()) {
-                Log.e("DEBUG", "File not found in internal storage.");
-            } else {
-                Log.d("DEBUG", "File exists in internal storage.");
-            }
-            if (file.exists()) {
-                FileReader reader = new FileReader(file);
-                Gson gson = new Gson();
-                Type type = new TypeToken<com.example.restart.ItemData>() {}.getType();
-                ItemData itemData = gson.fromJson(reader,type);
-                com.example.restart.ItemData restaurantData = gson.fromJson(reader, type);
+    private List<com.example.restart.ItemData> loadRestaurantsFromJson(){
+        List<com.example.restart.ItemData> data = new ArrayList<>();
+        try{
+            //read Json from assets folder
+            InputStreamReader isr = new InputStreamReader(requireContext().getAssets().open("restaurants.json"));
+            BufferedReader reader = new BufferedReader(isr);
 
-                if (restaurantData != null && restaurantData.getItems() != null) {
-                    for (com.example.restart.ItemData.Item item : restaurantData.getItems()) {
-                        Log.d("DEBUG", "Loaded Item: " + item.getName() + ", Phone: " + item.getPhone());
-                    }
-                    data.addAll(itemData.getItems());
-                } else {
-                    Log.e("DEBUG", "No items found in JSON.");
-                }
-                reader.close();
-            } else {
-                Log.e("DEBUG", "restaurants.json file does not exist.");
+            //passing Json to GSON
+            Gson gson = new Gson();
+            Type type = new TypeToken<RestaurantData>() {}.getType();
+            RestaurantData restaurantData = gson.fromJson(reader,type);
+
+            // JSON -> ItemData
+            for (RestaurantData.Restaurant restaurant : restaurantData.getRestaurants()) {
+                data.add(new com.example.restart.ItemData(restaurant.getImage(), restaurant.getName(), restaurant.getPhone(), restaurant.getType()));
             }
-        } catch (Exception e) {
+            //예외 발생시
+        } catch (Exception e){
             e.printStackTrace();
         }
         return data;
     }
 
+    // JSON 파일을 내부 저장소로 복사
+    private void copyJsonToInternalStorage() {
+        try {
+            InputStream is = requireContext().getAssets().open("restaurants.json");
+            File outputFile = new File(requireContext().getFilesDir(), "restaurants.json");
 
-
-
-
-
-    private void makePhoneCall(String phoneNumber) {
-        if (phoneNumber != null && !phoneNumber.isEmpty()) {
-            // 전화번호 URI 생성
-            Uri phoneUri = Uri.parse("tel:" + phoneNumber);
-
-            // Intent 생성
-            Intent callIntent = new Intent(Intent.ACTION_CALL, phoneUri);
-
-            startActivity(callIntent);
+            if (!outputFile.exists()) {
+                FileOutputStream fos = new FileOutputStream(outputFile);
+                byte[] buffer = new byte[1024];
+                int length;
+                while ((length = is.read(buffer)) > 0) {
+                    fos.write(buffer, 0, length);
+                }
+                fos.close();
+            }
+            is.close();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
+
+    // JSON 파일 읽기
+    private String readJsonFromInternalStorage() {
+        try {
+            File file = new File(requireContext().getFilesDir(), "restaurants.json");
+            FileInputStream fis = new FileInputStream(file);
+            BufferedReader reader = new BufferedReader(new InputStreamReader(fis));
+            StringBuilder jsonBuilder = new StringBuilder();
+            String line;
+            while ((line = reader.readLine()) != null) {
+                jsonBuilder.append(line);
+            }
+            reader.close();
+
+            String json = jsonBuilder.toString();
+
+            return jsonBuilder.toString();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    // JSON 파일 쓰기
+    private void writeJsonToInternalStorage(String jsonString) {
+        try {
+            File file = new File(requireContext().getFilesDir(), "restaurants.json");
+            FileOutputStream fos = new FileOutputStream(file);
+            fos.write(jsonString.getBytes());
+            fos.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void addNewRestaurant(String name, String phone, String imageURL, String type) {
+        try {
+            // JSON 읽기
+            String json = readJsonFromInternalStorage();
+            if (json == null) return;
+
+            // JSON 파싱
+            Gson gson = new Gson();
+            Type typeToken = new TypeToken<RestaurantData>() {}.getType();
+            RestaurantData restaurantData = gson.fromJson(json, typeToken);
+
+            // 새로운 데이터 추가
+            RestaurantData.Restaurant newRestaurant = new RestaurantData.Restaurant();
+            newRestaurant.setName(name);
+            newRestaurant.setPhone(phone);
+            newRestaurant.setImage(imageURL);
+            newRestaurant.setType(type);
+            restaurantData.getRestaurants().add(newRestaurant);
+
+            // JSON 파일에 저장
+            String updatedJson = gson.toJson(restaurantData);
+            writeJsonToInternalStorage(updatedJson);
+
+            // UI 업데이트
+            List<com.example.restart.ItemData> data = new ArrayList<>();
+            for (RestaurantData.Restaurant restaurant : restaurantData.getRestaurants()) {
+                data.add(new com.example.restart.ItemData(restaurant.getImage(), restaurant.getName(), restaurant.getPhone(), restaurant.getType()));
+            }
+            adapter.updateData(data); // 어댑터 업데이트
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void saveDataListToFile() {
+        try {
+            // 내부 저장소 파일 경로
+            File file = new File(requireContext().getFilesDir(), "added_restaurants.json");
+            Gson gson = new Gson();
+
+            // `data` 리스트를 JSON으로 변환
+            String jsonData = gson.toJson(data);
+
+            // 파일로 저장
+            FileOutputStream fos = new FileOutputStream(file);
+            fos.write(jsonData.getBytes());
+            fos.close();
+
+            Log.d("Save Data List", "Data list saved to: " + file.getAbsolutePath());
+        } catch (Exception e) {
+            Log.e("Save Data List", "Error saving data list: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
 
     private void navigateToFragment2() {
         NavController navController = Navigation.findNavController(requireView());
