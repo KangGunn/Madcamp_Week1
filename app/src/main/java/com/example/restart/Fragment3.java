@@ -6,7 +6,6 @@ import android.content.ContentValues;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.Manifest;
-import android.media.MediaDescrambler;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -15,16 +14,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContract;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
@@ -32,8 +28,17 @@ import androidx.navigation.Navigation;
 
 import com.bumptech.glide.Glide;
 import com.example.restart.databinding.Fragment3Binding;
+import com.example.restart.model.RestaurantData;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
-import org.w3c.dom.Text;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Fragment3 extends Fragment {
 
@@ -67,11 +72,79 @@ public class Fragment3 extends Fragment {
 
         setupHashtagButtons();
 
+        binding.loadButton.setOnClickListener(v -> {
+            List<String> restaurantNames = getSavedRestaurantNames();
+
+            if(restaurantNames.isEmpty()) {
+                Toast.makeText(requireContext(), "저장된 음식점이 없습니다.", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            new AlertDialog.Builder(requireContext())
+                    .setTitle("음식점을 선택해주세요.")
+                    .setItems(restaurantNames.toArray(new String[0]), ((dialog, which) -> {
+                        binding.Titletext.setText(restaurantNames.get(which));
+                    }))
+                    .setNegativeButton("취소", null)
+                    .create()
+                    .show();
+        });
 
         //add 12/29 - 업로드 버튼
         binding.uploadbutton.setOnClickListener(v -> showUploadDialog());
 
         return binding.getRoot();
+    }
+
+    private List<String> getSavedRestaurantNames() {
+        List<String> restaurantNames = new ArrayList<>();
+        try {
+            String jsonRestaurants = readJsonFromFile("restaurants.json");
+            if (jsonRestaurants != null) {
+                Gson gson = new Gson();
+                Type type = new TypeToken<RestaurantData>() {}.getType();
+                RestaurantData restaurantData = gson.fromJson(jsonRestaurants, type);
+
+                for (RestaurantData.Restaurant restaurant : restaurantData.getRestaurants()) {
+                    restaurantNames.add(restaurant.getName());
+                }
+            }
+
+            String jsonAddedRestaurants = readJsonFromFile("added_restaurants.json");
+            if (jsonAddedRestaurants != null) {
+                Gson gson = new Gson();
+                Type type = new TypeToken<List<com.example.restart.ItemData>>() {}.getType();
+                List<com.example.restart.ItemData> addedData = gson.fromJson(jsonAddedRestaurants, type);
+
+                for (com.example.restart.ItemData item : addedData) {
+                    restaurantNames.add(item.getText1());
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return restaurantNames;
+    }
+
+    private String readJsonFromFile(String fileName) {
+        try {
+            File file = new File(requireContext().getFilesDir(), fileName);
+            if (!file.exists()) return null;
+
+            FileInputStream fis = new FileInputStream(file);
+            BufferedReader reader = new BufferedReader(new InputStreamReader(fis));
+            StringBuilder jsonBuilder = new StringBuilder();
+
+            String line;
+            while ((line = reader.readLine()) != null) {
+                jsonBuilder.append(line);
+            }
+            reader.close();
+            return jsonBuilder.toString();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     private void setupHashtagButtons() {
