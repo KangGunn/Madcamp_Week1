@@ -56,7 +56,7 @@ public class AddRestaurantDialog extends DialogFragment {
 
         builder.setView(dialogView)
                 .setTitle("음식점 추가하기")
-                .setPositiveButton("Add", (dialog, id) -> {
+                .setPositiveButton("추가", (dialog, id) -> {
                     String name = editName.getText().toString().trim();
                     String phone = editPhone.getText().toString().trim();
                     String type = "";
@@ -74,7 +74,7 @@ public class AddRestaurantDialog extends DialogFragment {
                         listener.onRestaurantAdded(name, phone, "1", type);
                     }
                 })
-                .setNegativeButton("Cancel", (dialog, id) -> dialog.dismiss());
+                .setNegativeButton("취소", (dialog, id) -> dialog.dismiss());
 
         return builder.create();
     }
