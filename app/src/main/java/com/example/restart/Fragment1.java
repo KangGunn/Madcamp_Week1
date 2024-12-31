@@ -67,7 +67,7 @@ public class Fragment1 extends Fragment {
         data = loadAllRestaurants();
 
         // 커스텀 어댑터 설정
-        adapter = new com.example.restart.CustomAdapter(requireContext(), data);
+        adapter = new com.example.restart.CustomAdapter(requireContext(), this, data);
         list.setAdapter(adapter);
 
         binding.filter1.setOnClickListener(v -> showFilterPopupMenu());
@@ -77,14 +77,6 @@ public class Fragment1 extends Fragment {
             AddRestaurantDialog dialog = new AddRestaurantDialog();
             dialog.show(getParentFragmentManager(), "AddRestaurantDialog");
         });
-
-
-        //삭제 기능
-        list.setOnItemClickListener((parent, view, position, id) -> {
-            // 삭제 여부를 묻는 팝업 띄우기
-            showDeleteConfirmationDialog(position);
-        });
-
 
         if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(requireActivity(), new String[]{Manifest.permission.CALL_PHONE}, 1);
@@ -362,7 +354,7 @@ public class Fragment1 extends Fragment {
             data = loadAllRestaurants();
 
             // 어댑터 설정
-            adapter = new com.example.restart.CustomAdapter(requireContext(), data);
+            adapter = new com.example.restart.CustomAdapter(requireContext(), Fragment1.this, data);
             list.setAdapter(adapter);
 
             binding.buttonAddRestaurant.setOnClickListener(v -> {
@@ -381,7 +373,7 @@ public class Fragment1 extends Fragment {
         }
     }
 
-    private void showDeleteConfirmationDialog(int position) {
+    public void showDeleteConfirmationDialog(int position) {
 
         Log.d("check1","test");
         new AlertDialog.Builder(requireContext())
@@ -572,7 +564,7 @@ public class Fragment1 extends Fragment {
             }
         }
 
-        adapter = new com.example.restart.CustomAdapter(requireContext(), filteredData);
+        adapter = new com.example.restart.CustomAdapter(requireContext(), this, filteredData);
         binding.list.setAdapter(adapter);
     }
 

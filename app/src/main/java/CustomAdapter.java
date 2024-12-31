@@ -29,9 +29,11 @@ public class CustomAdapter extends BaseAdapter {
     private Context context;
     private List<ItemData> items;
 
+    private Fragment1 fragment; // Fragment1 참조 추가
     // 생성자
-    public CustomAdapter(Context context, List<ItemData> items) {
+    public CustomAdapter(Context context, Fragment1 fragment, List<ItemData> items) {
         this.context = context;
+        this.fragment = fragment;
         this.items = items;
     }
 
@@ -79,6 +81,11 @@ public class CustomAdapter extends BaseAdapter {
         textView1.setText(currentItem.getText1());
         textView2.setText(currentItem.getText2());
 
+        delete_button.setOnClickListener(v -> {
+            // Fragment1의 showDeleteConfirmationDialog 호출
+            fragment.showDeleteConfirmationDialog(position);
+        });
+
         switch (currentItem.getType().toLowerCase()) {
             case "restaurant":
                 imageBackground.setBackgroundResource(R.drawable.restaurant_round);
@@ -93,6 +100,7 @@ public class CustomAdapter extends BaseAdapter {
                 imageView.setImageResource(R.drawable.cafe_icon);
                 break;
         }
+
 
         call_button.setOnClickListener(v -> {
             String phone = textView2.getText().toString();
@@ -114,7 +122,6 @@ public class CustomAdapter extends BaseAdapter {
             shareIntent.putExtra(Intent.EXTRA_TEXT, shareContent);
             context.startActivity(Intent.createChooser(shareIntent, "공유하기"));
         });
-
         return convertView;
     }
 
