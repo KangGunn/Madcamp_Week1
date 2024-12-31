@@ -6,6 +6,7 @@ import com.example.restart.ItemData;
 
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -84,5 +85,15 @@ public class CustomAdapter extends BaseAdapter {
         }
 
         return convertView;
+    }
+
+    public void updateData(List<ItemData> newItems) {
+        try {
+            this.items.clear(); // 기존 데이터 제거
+            this.items.addAll(newItems); // 새로운 데이터 추가
+            notifyDataSetChanged(); // 어댑터 갱신
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
