@@ -80,11 +80,11 @@ public class Fragment1 extends Fragment {
 
 
         //삭제 기능
-        list.setOnItemLongClickListener((parent, view, position, id) -> {
+        list.setOnItemClickListener((parent, view, position, id) -> {
             // 삭제 여부를 묻는 팝업 띄우기
             showDeleteConfirmationDialog(position);
-            return true;
         });
+
 
         if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(requireActivity(), new String[]{Manifest.permission.CALL_PHONE}, 1);
@@ -386,14 +386,14 @@ public class Fragment1 extends Fragment {
         Log.d("check1","test");
         new AlertDialog.Builder(requireContext())
                 .setTitle("Delete Restaurant")
-                .setMessage("Are you sure you want to delete this restaurant?")
-                .setPositiveButton("Yes", (dialog, which) -> {
+                .setMessage("정말 삭제하시겠습니까?")
+                .setPositiveButton("네", (dialog, which) -> {
                     // 항목 삭제
 
                     Log.d("check2","test");
                     deleteRestaurant(position);
                 })
-                .setNegativeButton("No", (dialog, which) -> dialog.dismiss())
+                .setNegativeButton("아니요", (dialog, which) -> dialog.dismiss())
                 .create()
                 .show();
     }

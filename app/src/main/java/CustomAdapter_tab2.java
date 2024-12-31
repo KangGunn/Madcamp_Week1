@@ -8,6 +8,8 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
+
 import com.bumptech.glide.Glide;
 
 import java.util.List;
@@ -47,6 +49,7 @@ public class CustomAdapter_tab2 extends BaseAdapter {
         com.example.restart.RestaurantData_tab2.Restaurant currentItem = items.get(position);
 
         // 레이아웃의 뷰 참조
+        ConstraintLayout constraintLayout = convertView.findViewById(R.id.constraint_layout);
         ImageView imageView = convertView.findViewById(R.id.item_image);
         TextView textView1 = convertView.findViewById(R.id.item_text1);
         TextView textView2 = convertView.findViewById(R.id.item_text2);
@@ -61,6 +64,18 @@ public class CustomAdapter_tab2 extends BaseAdapter {
 
         textView1.setText(currentItem.getName());
         textView2.setText(currentItem.getComment());
+
+        switch (currentItem.getType().toLowerCase()) {
+            case "cafe":
+                constraintLayout.setBackgroundResource(R.drawable.cafe_round);
+                break;
+            case "pub":
+                constraintLayout.setBackgroundResource(R.drawable.pub_round);
+                break;
+            case "restaurant":
+                constraintLayout.setBackgroundResource(R.drawable.restaurant_round);
+                break;
+        }
 
 
         return convertView;
