@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Restart</string>
+    <string name="app_name">맛.zip</string>
     <string name="contact_button">Contact</string>
 
     <string name="tab1_title">나의 음식점</string>
@@ -10,4 +10,6 @@
     <string name="restaurant">음식점</string>
     <string name="cafe">카페</string>
     <string name="pub">주점</string>
+
+    <string name="upload_button_text">업로드!</string>
 </resources>
