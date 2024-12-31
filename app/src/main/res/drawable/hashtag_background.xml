@@ -3,9 +3,9 @@
     <!-- Selected 상태 -->
     <item android:state_selected="true">
         <shape>
-            <solid android:color="#6200EE" /> <!-- 보라색 배경 -->
+            <solid android:color="@color/hashtag_color" /> <!-- 보라색 배경 -->
             <corners android:radius="16dp" /> <!-- 둥근 모서리 -->
-            <stroke android:width="2dp" android:color="#6200EE" /> <!-- 보라색 테두리 -->
+            <stroke android:width="2dp" android:color="@color/hashtag_color" /> <!-- 보라색 테두리 -->
         </shape>
     </item>
 
@@ -14,7 +14,7 @@
         <shape>
             <solid android:color="@android:color/transparent" /> <!-- 투명한 배경 -->
             <corners android:radius="16dp" /> <!-- 둥근 모서리 -->
-            <stroke android:width="2dp" android:color="#6200EE" /> <!-- 보라색 테두리 -->
+            <stroke android:width="2dp" android:color="@color/hashtag_color" /> <!-- 보라색 테두리 -->
         </shape>
     </item>
 </selector>

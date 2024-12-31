@@ -9,8 +9,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.example.restart.ItemData;
-import com.example.restart.R;
 
 import java.util.List;
 
