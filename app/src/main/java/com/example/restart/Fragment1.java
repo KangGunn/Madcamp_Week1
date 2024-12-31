@@ -52,27 +52,27 @@ public class Fragment1 extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = Fragment1Binding.inflate(inflater, container, false);
 
-
-        copyJsonToInternalStorage();
-
         binding.button12.setOnClickListener(v -> navigateToFragment2());
         binding.button13.setOnClickListener(v -> navigateToFragment3());
 
         ListView list = binding.list;
 
-        data = loadRestaurantsFromJson();
+        // 모든 데이터 로드
+        data = loadAllRestaurants();
 
         // 커스텀 어댑터 설정
         adapter = new CustomAdapter(requireContext(), data);
         list.setAdapter(adapter);
 
         binding.buttonAddRestaurant.setOnClickListener(v -> {
-            addNewRestaurant("New Restaurant", "123-456-7890", "https://example.com/image.jpg", "cafe");
+            addNewRestaurant("New Restauran!@#!@#t", "123-456-7890", "https://example.com/image.jpg", "cafe");
             saveDataListToFile();
         });
 
+
         return binding.getRoot();
     }
+
 
     //Json -> data로 전달
     private List<com.example.restart.ItemData> loadRestaurantsFromJson(){
@@ -208,6 +208,52 @@ public class Fragment1 extends Fragment {
             Log.e("Save Data List", "Error saving data list: " + e.getMessage());
             e.printStackTrace();
         }
+    }
+
+
+    //Load All Restaurant Data
+    private List<com.example.restart.ItemData> loadAllRestaurants() {
+        List<com.example.restart.ItemData> data = new ArrayList<>();
+        try {
+
+            // 추가된 added_restaurants.json 읽기
+            String jsonAdded = readJsonFromFile("added_restaurants.json");
+            if (jsonAdded != null) {
+                Gson gson = new Gson();
+                Type type = new TypeToken<List<com.example.restart.ItemData>>() {}.getType();
+                List<com.example.restart.ItemData> addedData = gson.fromJson(jsonAdded, type);
+
+                data.addAll(addedData); // 추가 데이터 병합
+            }
+        } catch (Exception e) {
+            Log.e("Load All Restaurants", "Error loading restaurants: " + e.getMessage());
+            e.printStackTrace();
+        }
+        return data;
+    }
+
+    //readJsonFromFile
+    private String readJsonFromFile(String fileName) {
+        try {
+            File file = new File(requireContext().getFilesDir(), fileName);
+            if (!file.exists()) {
+                Log.d("Read JSON", fileName + " does not exist.");
+                return null;
+            }
+            FileInputStream fis = new FileInputStream(file);
+            BufferedReader reader = new BufferedReader(new InputStreamReader(fis));
+            StringBuilder jsonBuilder = new StringBuilder();
+            String line;
+            while ((line = reader.readLine()) != null) {
+                jsonBuilder.append(line);
+            }
+            reader.close();
+            return jsonBuilder.toString();
+        } catch (Exception e) {
+            Log.e("Read JSON", "Error reading " + fileName + ": " + e.getMessage());
+            e.printStackTrace();
+        }
+        return null;
     }
 
 
