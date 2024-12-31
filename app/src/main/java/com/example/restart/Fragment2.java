@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
 import android.widget.ImageButton;
+import android.widget.PopupMenu;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -33,6 +34,8 @@ public class Fragment2 extends Fragment {
     }
 
     private Fragment2Binding binding;
+    List<com.example.restart.RestaurantData_tab2.Restaurant> data;
+    com.example.restart.CustomAdapter_tab2 adapter;
 
     @Nullable
     @Override
@@ -46,10 +49,12 @@ public class Fragment2 extends Fragment {
         // GridView setup
         GridView grid = binding.grid;
 
-        List<com.example.restart.RestaurantData_tab2.Restaurant> data = loadRestaurantsFromJson();
+        data = loadRestaurantsFromJson();
 
-        com.example.restart.CustomAdapter_tab2 adapter = new com.example.restart.CustomAdapter_tab2(requireContext(), data);
+        adapter = new com.example.restart.CustomAdapter_tab2(requireContext(), data);
         grid.setAdapter(adapter);
+
+        binding.filter.setOnClickListener(v -> showFilterPopupMenu());
 
         // GridView item click listener
         grid.setOnItemClickListener((parent, view, position, id) -> {
@@ -71,7 +76,6 @@ public class Fragment2 extends Fragment {
                     .replace(R.id.mapcontainer, mapFragment)
                     .addToBackStack(null)
                     .commit();
-
         });
 
         return binding.getRoot();
@@ -108,6 +112,50 @@ public class Fragment2 extends Fragment {
     private void navigateToFragment3() {
         NavController navController = Navigation.findNavController(requireView());
         navController.navigate(Fragment2Directions.Companion.actionFragment2ToFragment3());
+    }
+
+    private void showFilterPopupMenu() {
+        PopupMenu popupMenu = new PopupMenu(requireContext(), binding.filter);
+        popupMenu.getMenuInflater().inflate(R.menu.filter_menu, popupMenu.getMenu());
+
+        popupMenu.setOnMenuItemClickListener(item -> {
+            int itemId = item.getItemId();
+
+            if (itemId == R.id.filter_all) {
+                filterData(null); // 모든 데이터 표시
+                binding.filterText.setText("필터: 전체");
+                return true;
+            } else if (itemId == R.id.filter_restaurant) {
+                filterData("restaurant"); // "restaurant" 타입만 표시
+                binding.filterText.setText("필터: 음식점");
+                return true;
+            } else if (itemId == R.id.filter_cafe) {
+                filterData("cafe"); // "cafe" 타입만 표시
+                binding.filterText.setText("필터: 카페");
+                return true;
+            } else if (itemId == R.id.filter_pub) {
+                filterData("pub"); // "pub" 타입만 표시
+                binding.filterText.setText("필터: 주점");
+                return true;
+            } else {
+                return false; // 이벤트를 처리하지 않음
+            }
+        });
+
+        popupMenu.show();
+    }
+
+    private void filterData(String type) {
+        List<com.example.restart.RestaurantData_tab2.Restaurant> filteredData = new ArrayList<>();
+        if (type == null) filteredData.addAll(data);
+        else {
+            for (com.example.restart.RestaurantData_tab2.Restaurant restaurant : data) {
+                if (restaurant.getType().equals(type)) filteredData.add(restaurant);
+            }
+        }
+
+        adapter = new com.example.restart.CustomAdapter_tab2(requireContext(), filteredData);
+        binding.grid.setAdapter(adapter);
     }
 
     @Override
