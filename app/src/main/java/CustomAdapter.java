@@ -1,9 +1,5 @@
 package com.example.restart;
 
-import com.bumptech.glide.Glide;
-import com.example.restart.CustomAdapter;
-import com.example.restart.ItemData;
-
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -14,16 +10,14 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.restart.ItemData;
-
 import java.util.List;
 
 public class CustomAdapter extends BaseAdapter {
     private Context context;
-    private List<ItemData> items;
+    private List<com.example.restart.ItemData> items;
 
     // 생성자
-    public CustomAdapter(Context context, List<ItemData> items) {
+    public CustomAdapter(Context context, List<com.example.restart.ItemData> items) {
         this.context = context;
         this.items = items;
     }
@@ -50,7 +44,12 @@ public class CustomAdapter extends BaseAdapter {
         }
 
         // 현재 데이터 가져오기
-        ItemData currentItem = items.get(position);
+        com.example.restart.ItemData currentItem = items.get(position);
+
+        // 첫 번째 ItemData.Item 가져오기
+        com.example.restart.ItemData.Item firstItem = currentItem.getItems() != null && !currentItem.getItems().isEmpty()
+                ? currentItem.getItems().get(0) // 첫 번째 아이템 가져오기
+                : null;
 
         // 레이아웃의 뷰 참조
         ImageView imageView = convertView.findViewById(R.id.item_image);
@@ -59,28 +58,24 @@ public class CustomAdapter extends BaseAdapter {
         FrameLayout imageBackground = convertView.findViewById(R.id.item_image_background);
 
         // 데이터 설정
-//        Glide.with(context)
-//                .load(currentItem.getImageURL())
-//                .placeholder(R.drawable.placeholder)
-//                .error(R.drawable.error)
-//                .into(imageView);
+        if (firstItem != null) {
+            textView1.setText(firstItem.getPhone());
+            textView2.setText(firstItem.getName());
 
-        textView1.setText(currentItem.getText1());
-        textView2.setText(currentItem.getText2());
-
-        switch (currentItem.getType()) {
-            case "restaurant":
-                imageBackground.setBackgroundResource(R.drawable.restaurant_round);
-                imageView.setImageResource(R.drawable.restaurant_icon);
-                break;
-            case "pub":
-                imageBackground.setBackgroundResource(R.drawable.pub_round);
-                imageView.setImageResource(R.drawable.pub_icon);
-                break;
-            case "cafe":
-                imageBackground.setBackgroundResource(R.drawable.cafe_round);
-                imageView.setImageResource(R.drawable.cafe_icon);
-                break;
+            switch (firstItem.getType()) {
+                case "restaurant":
+                    imageBackground.setBackgroundResource(R.drawable.restaurant_round);
+                    imageView.setImageResource(R.drawable.restaurant_icon);
+                    break;
+                case "pub":
+                    imageBackground.setBackgroundResource(R.drawable.pub_round);
+                    imageView.setImageResource(R.drawable.pub_icon);
+                    break;
+                case "cafe":
+                    imageBackground.setBackgroundResource(R.drawable.cafe_round);
+                    imageView.setImageResource(R.drawable.cafe_icon);
+                    break;
+            }
         }
 
         return convertView;
