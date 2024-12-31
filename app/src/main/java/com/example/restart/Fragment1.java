@@ -377,7 +377,7 @@ public class Fragment1 extends Fragment {
 
         Log.d("check1","test");
         new AlertDialog.Builder(requireContext())
-                .setTitle("Delete Restaurant")
+                .setTitle("음식점 삭제")
                 .setMessage("정말 삭제하시겠습니까?")
                 .setPositiveButton("네", (dialog, which) -> {
                     // 항목 삭제
