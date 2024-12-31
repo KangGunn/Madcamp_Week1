@@ -8,6 +8,8 @@ import com.example.restart.ItemData;
 
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +18,7 @@ import android.widget.BaseAdapter;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.restart.ItemData;
 
@@ -62,6 +65,10 @@ public class CustomAdapter extends BaseAdapter {
         TextView textView2 = convertView.findViewById(R.id.item_text2);
         FrameLayout imageBackground = convertView.findViewById(R.id.item_image_background);
 
+        FrameLayout call_button = convertView.findViewById(R.id.button1_container);
+        FrameLayout share_button = convertView.findViewById(R.id.button2_container);
+        FrameLayout delete_button = convertView.findViewById(R.id.button3_container);
+
         // 데이터 설정
 //        Glide.with(context)
 //                .load(currentItem.getImageURL())
@@ -86,6 +93,27 @@ public class CustomAdapter extends BaseAdapter {
                 imageView.setImageResource(R.drawable.cafe_icon);
                 break;
         }
+
+        call_button.setOnClickListener(v -> {
+            String phone = textView2.getText().toString();
+            if (!phone.isEmpty()) {
+                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + phone));
+                context.startActivity(intent);
+            } else {
+                Toast.makeText(context, "전화번호가 없습니다.", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        share_button.setOnClickListener(v -> {
+            String name = textView1.getText().toString();
+            String phoneNum = textView2.getText().toString();
+            String shareContent = "음식점 이름: " + name + "\n전화번호: " + phoneNum;
+
+            Intent shareIntent = new Intent(Intent.ACTION_SEND);
+            shareIntent.setType("text/plain");
+            shareIntent.putExtra(Intent.EXTRA_TEXT, shareContent);
+            context.startActivity(Intent.createChooser(shareIntent, "공유하기"));
+        });
 
         return convertView;
     }
