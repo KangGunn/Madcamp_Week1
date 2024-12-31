@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 import android.Manifest;
+import android.widget.PopupMenu;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -69,6 +70,7 @@ public class Fragment1 extends Fragment {
         adapter = new com.example.restart.CustomAdapter(requireContext(), data);
         list.setAdapter(adapter);
 
+        binding.filter1.setOnClickListener(v -> showFilterPopupMenu());
 
         //추가 기능
         binding.buttonAddRestaurant.setOnClickListener(v -> {
@@ -528,6 +530,50 @@ public class Fragment1 extends Fragment {
     private void navigateToFragment3() {
         NavController navController = Navigation.findNavController(requireView());
         navController.navigate(Fragment1Directions.Companion.actionFragment1ToFragment3());
+    }
+
+    private void showFilterPopupMenu() {
+        PopupMenu popupMenu = new PopupMenu(requireContext(), binding.filter1);
+        popupMenu.getMenuInflater().inflate(R.menu.filter_menu, popupMenu.getMenu());
+
+        popupMenu.setOnMenuItemClickListener(item -> {
+            int itemId = item.getItemId();
+
+            if (itemId == R.id.filter_all) {
+                filterData(null); // 모든 데이터 표시
+                binding.filterText1.setText("필터: 전체");
+                return true;
+            } else if (itemId == R.id.filter_restaurant) {
+                filterData("restaurant"); // "restaurant" 타입만 표시
+                binding.filterText1.setText("필터: 식당");
+                return true;
+            } else if (itemId == R.id.filter_cafe) {
+                filterData("cafe"); // "cafe" 타입만 표시
+                binding.filterText1.setText("필터: 카페");
+                return true;
+            } else if (itemId == R.id.filter_pub) {
+                filterData("pub"); // "pub" 타입만 표시
+                binding.filterText1.setText("필터: 주점");
+                return true;
+            } else {
+                return false; // 이벤트를 처리하지 않음
+            }
+        });
+
+        popupMenu.show();
+    }
+
+    private void filterData(String type) {
+        List<com.example.restart.ItemData> filteredData = new ArrayList<>();
+        if (type == null) filteredData.addAll(data);
+        else {
+            for (com.example.restart.ItemData restaurant : data) {
+                if (restaurant.getType().equals(type)) filteredData.add(restaurant);
+            }
+        }
+
+        adapter = new com.example.restart.CustomAdapter(requireContext(), filteredData);
+        binding.list.setAdapter(adapter);
     }
 
     @Override
