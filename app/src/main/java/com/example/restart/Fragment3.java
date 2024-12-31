@@ -46,6 +46,10 @@ public class Fragment3 extends Fragment {
     private ActivityResultLauncher<Uri> cameraLauncher;
     private Uri photoUri;
     private ActivityResultLauncher<Intent> galleryLauncher;
+    private final int[] buttonIds = {
+            R.id.button1, R.id.button2, R.id.button3, R.id.button4, R.id.button5,
+            R.id.button6, R.id.button7, R.id.button8, R.id.button9, R.id.button10
+    };
 
     @Nullable
     @Override
@@ -71,11 +75,6 @@ public class Fragment3 extends Fragment {
     }
 
     private void setupHashtagButtons() {
-        int[] buttonIds = {
-                R.id.button1, R.id.button2, R.id.button3, R.id.button4, R.id.button5,
-                R.id.button6, R.id.button7, R.id.button8, R.id.button9, R.id.button10
-        };
-
         for (int id : buttonIds) {
             Button button = binding.getRoot().findViewById(id);
             button.setOnClickListener(v -> {
@@ -176,19 +175,41 @@ public class Fragment3 extends Fragment {
     //add 1229 : 업로드 버튼 누를시 팝업
     //add 1229 : 업로드 버튼 누를시 팝업
     private void showUploadDialog(){
-        new AlertDialog.Builder(requireContext())
-                .setTitle("업로드 확인")
-                .setMessage("이대로 업로드하시겠습니까?")
-                .setPositiveButton("확인",(dialog,which) ->{
-                    //클릭시 코드실행
-                    performUpload();
-                } )
-                .setNegativeButton("취소",(dialog,which) -> {
-                    //클릭시 코드실행
-                })
-                .create()
-                .show();
+        if (isInputValid()) {
+            new AlertDialog.Builder(requireContext())
+                    .setTitle("업로드 확인")
+                    .setMessage("이대로 업로드하시겠습니까?")
+                    .setPositiveButton("확인", (dialog, which) -> {
+                        //클릭시 코드실행
+                        performUpload();
+                    })
+                    .setNegativeButton("취소", (dialog, which) -> {
+                        //클릭시 코드실행
+                    })
+                    .create()
+                    .show();
+        } else {
+            new AlertDialog.Builder(requireContext())
+                    .setTitle("작성 미완료")
+                    .setMessage("이미지, 음식점 이름, 해시태그를 모두 작성해주세요.")
+                    .create()
+                    .show();
+        }
+    }
 
+    private boolean isInputValid() {
+        if (binding.imageView3.getDrawable() == null) return false;
+        if (binding.Titletext.getText().toString().trim().isEmpty()) return false;
+
+        boolean flag = false;
+        for (int id : buttonIds) {
+            Button button = binding.getRoot().findViewById(id);
+            if (button != null && button.isSelected()) {
+                flag = true;
+                break;
+            }
+        }
+        return flag;
     }
 
     private void performUpload() {
@@ -197,11 +218,6 @@ public class Fragment3 extends Fragment {
 
         // Updated at 12.30
         // hashtag reset
-        int[] buttonIds = {
-                R.id.button1, R.id.button2, R.id.button3, R.id.button4, R.id.button5,
-                R.id.button6, R.id.button7, R.id.button8, R.id.button9, R.id.button10
-        };
-
         for (int id : buttonIds) {
             Button button = binding.getRoot().findViewById(id);
             if (button != null) {

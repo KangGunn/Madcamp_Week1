@@ -5,6 +5,7 @@
         <!-- <item name="colorPrimary">@color/white</item>-->
         <item name="android:statusBarColor">#E5E4E2</item>
         <item name="android:windowLightStatusBar">true</item>
+        <item name="fontFamily">@font/pretendardstd_regular</item>
     </style>
 
     <style name="Theme.Restart" parent="Base.Theme.Restart" />

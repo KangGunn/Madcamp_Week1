@@ -15,6 +15,7 @@ public class RestaurantData_tab2 {
         private String comment;
         private double latitude; // 위치 정보 추가(위도)
         private double longitude; // 위치 정보 추가(경도)
+        private String type;
 
         // Getters
         public String getName() {
@@ -36,6 +37,8 @@ public class RestaurantData_tab2 {
         public double getLongitude(){
             return longitude;
         }
+
+        public String getType() { return type; }
 
     }
 }
