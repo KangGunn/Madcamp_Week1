@@ -9,19 +9,19 @@
         android:id="@+id/editName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Restaurant Name" />
+        android:hint="음식점 이름" />
 
     <EditText
         android:id="@+id/editPhone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Phone Number"
+        android:hint="음식점 전화번호"
         android:inputType="phone" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Select Type:"
+        android:text="음식점 종류:"
         android:paddingTop="8dp"
         android:textSize="16sp" />
 
@@ -35,19 +35,19 @@
             android:id="@+id/radioCafe"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cafe" />
+            android:text="카페" />
 
         <RadioButton
             android:id="@+id/radioPub"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Pub" />
+            android:text="주점" />
 
         <RadioButton
             android:id="@+id/radioRestaurant"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Restaurant" />
+            android:text="식당" />
     </RadioGroup>
 
 </LinearLayout>

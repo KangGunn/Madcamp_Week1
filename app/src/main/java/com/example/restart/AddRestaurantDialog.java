@@ -55,7 +55,7 @@ public class AddRestaurantDialog extends DialogFragment {
         RadioGroup radioGroupType = dialogView.findViewById(R.id.radioGroupType);
 
         builder.setView(dialogView)
-                .setTitle("Add New Restaurant")
+                .setTitle("음식점 추가하기")
                 .setPositiveButton("Add", (dialog, id) -> {
                     String name = editName.getText().toString().trim();
                     String phone = editPhone.getText().toString().trim();

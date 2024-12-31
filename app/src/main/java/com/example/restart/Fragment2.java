@@ -127,7 +127,7 @@ public class Fragment2 extends Fragment {
                 return true;
             } else if (itemId == R.id.filter_restaurant) {
                 filterData("restaurant"); // "restaurant" 타입만 표시
-                binding.filterText.setText("필터: 음식점");
+                binding.filterText.setText("필터: 식당");
                 return true;
             } else if (itemId == R.id.filter_cafe) {
                 filterData("cafe"); // "cafe" 타입만 표시
