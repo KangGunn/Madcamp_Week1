@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main1"
+    android:id="@+id/fragment3"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
@@ -12,13 +12,14 @@
         android:id="@+id/textView3"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="음식점 추천하기"
-        android:textSize="20sp"
+        android:text="@string/tab3_title"
+        android:textSize="30sp"
         android:gravity="center"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp" />
+        android:paddingBottom="15dp"
+        android:background="@color/main_color" />
 
     <!-- 빈 회색 칸 (이미지와 텍스트 포함) -->
     <FrameLayout
@@ -61,8 +62,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/imageContainer"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginBottom="10dp">
+        app:layout_constraintRight_toRightOf="parent" >
         <EditText
             android:id="@+id/Titletext"
             android:layout_width="300dp"
@@ -93,8 +93,8 @@
                 android:id="@+id/buttonGrid"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
                 android:alignmentMode="alignMargins"
                 android:columnCount="2"
                 android:rowCount="5"
@@ -102,7 +102,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent">
 
-                <Button
+                <android.widget.Button
                     android:id="@+id/button1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -113,7 +113,7 @@
                     android:text="#음식이_맛있어요"
                     android:textColor="@color/hashtag_text_color" />
 
-                <Button
+                <android.widget.Button
                     android:id="@+id/button2"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -124,7 +124,7 @@
                     android:text="#양이_많아요"
                     android:textColor="@color/hashtag_text_color" />
 
-                <Button
+                <android.widget.Button
                     android:id="@+id/button3"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -135,7 +135,7 @@
                     android:text="#재료가_신선해요"
                     android:textColor="@color/hashtag_text_color" />
 
-                <Button
+                <android.widget.Button
                     android:id="@+id/button4"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -146,7 +146,7 @@
                     android:text="#음식이_빨리_나와요"
                     android:textColor="@color/hashtag_text_color" />
 
-                <Button
+                <android.widget.Button
                     android:id="@+id/button5"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -157,7 +157,7 @@
                     android:text="#매장이_청결해요"
                     android:textColor="@color/hashtag_text_color" />
 
-                <Button
+                <android.widget.Button
                     android:id="@+id/button6"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -168,7 +168,7 @@
                     android:text="#분위기가_좋아요"
                     android:textColor="@color/hashtag_text_color" />
 
-                <Button
+                <android.widget.Button
                     android:id="@+id/button7"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -179,7 +179,7 @@
                     android:text="#가성비가_좋아요"
                     android:textColor="@color/hashtag_text_color" />
 
-                <Button
+                <android.widget.Button
                     android:id="@+id/button8"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -190,7 +190,7 @@
                     android:text="#비싼만큼_가치있어요"
                     android:textColor="@color/hashtag_text_color" />
 
-                <Button
+                <android.widget.Button
                     android:id="@+id/button9"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -201,7 +201,7 @@
                     android:text="#혼밥하기_좋아요"
                     android:textColor="@color/hashtag_text_color" />
 
-                <Button
+                <android.widget.Button
                     android:id="@+id/button10"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -217,17 +217,18 @@
                 android:id="@+id/uploadcontainer"
                 android:layout_width="100dp"
                 android:layout_height="50dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="3dp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/buttonGrid">
 
-                <Button
+                <android.widget.Button
                     android:id="@+id/uploadbutton"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="업로드!"
-                    android:textColor="@color/white" />
+                    android:background="@color/hashtag_color"
+                    android:textColor="@color/hashtag_selected_text" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -243,7 +244,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:gravity="center"
-        android:background="#E5E4E2">
+        android:background="@color/main_color">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/button31"
@@ -257,8 +258,8 @@
 
             <ImageView
                 android:id="@+id/button_icon1"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_marginBottom="4dp"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -269,6 +270,7 @@
                 android:id="@+id/button_text1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
                 app:layout_constraintTop_toBottomOf="@id/button_icon1"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -290,8 +292,8 @@
 
             <ImageView
                 android:id="@+id/button_icon2"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_marginBottom="4dp"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -302,6 +304,7 @@
                 android:id="@+id/button_text2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
                 app:layout_constraintTop_toBottomOf="@id/button_icon2"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -323,8 +326,8 @@
 
             <ImageView
                 android:id="@+id/button_icon3"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_marginBottom="4dp"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -335,6 +338,7 @@
                 android:id="@+id/button_text3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
                 app:layout_constraintTop_toBottomOf="@id/button_icon3"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
