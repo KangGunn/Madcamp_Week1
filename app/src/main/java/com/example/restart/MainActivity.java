@@ -31,9 +31,14 @@ public class MainActivity extends AppCompatActivity implements AddRestaurantDial
 
             navController.addOnDestinationChangedListener((controller, destination, arguments) -> {
                 int destinationId = destination.getId();
-                if (destinationId == R.id.fragment1) moveIndicatorToPosition(0);
-                else if (destinationId == R.id.fragment2) moveIndicatorToPosition(1);
-                else if (destinationId == R.id.fragment3) moveIndicatorToPosition(2);
+                if (destinationId == R.id.fragment0) {
+                    selectedIndicator.setVisibility(View.GONE);
+                } else {
+                    selectedIndicator.setVisibility(View.VISIBLE);
+                    if (destinationId == R.id.fragment1) moveIndicatorToPosition(0);
+                    else if (destinationId == R.id.fragment2) moveIndicatorToPosition(1);
+                    else if (destinationId == R.id.fragment3) moveIndicatorToPosition(2);
+                }
             });
         }
     }
