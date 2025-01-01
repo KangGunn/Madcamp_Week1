@@ -81,7 +81,6 @@ public class Fragment3 extends Fragment {
             }
 
             new AlertDialog.Builder(requireContext())
-                    .setTitle("음식점을 선택해주세요.")
                     .setItems(restaurantNames.toArray(new String[0]), ((dialog, which) -> {
                         binding.Titletext.setText(restaurantNames.get(which));
                     }))
@@ -263,8 +262,8 @@ public class Fragment3 extends Fragment {
                     .show();
         } else {
             new AlertDialog.Builder(requireContext())
-                    .setTitle("작성 미완료")
-                    .setMessage("이미지, 음식점 이름, 해시태그를 모두 작성해주세요.")
+//                    .setTitle("작성 미완료")
+                    .setMessage("이미지, 음식점 이름, 해시태그를\n모두 작성해주세요.")
                     .create()
                     .show();
         }

@@ -6,6 +6,16 @@
     app:startDestination="@id/fragment1">
 
     <fragment
+        android:id="@+id/fragment0"
+        android:name="com.example.restart.Fragment0"
+        android:label="fragment_0"
+        tools:layout="@layout/fragment_0">
+        <action
+            android:id="@+id/action_fragment0_to_fragment1"
+            app:destination="@id/fragment1" />
+    </fragment>
+
+    <fragment
         android:id="@+id/fragment1"
         android:name="com.example.restart.Fragment1"
         android:label="fragment_1"
