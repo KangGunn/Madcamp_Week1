@@ -9,6 +9,7 @@
 
 
     <TextView
+        android:padding="10dp"
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -19,7 +20,8 @@
         android:text="@string/tab1_title"
         android:textSize="30sp"
         android:gravity="center"
-        android:background="@color/main_color"/>
+        android:background="@color/main_color"
+        />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/filter1"
@@ -75,7 +77,8 @@
         app:layout_constraintStart_toStartOf="@id/list"
         app:layout_constraintBottom_toTopOf="@id/list"
         android:layout_marginBottom="5dp"
-        android:layout_marginStart="5dp">
+        android:layout_marginStart="20dp"
+        >
 
 
         <android.widget.Button
