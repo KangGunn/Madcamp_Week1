@@ -8,7 +8,7 @@ import android.util.AttributeSet;
 import androidx.appcompat.widget.AppCompatImageView;
 
 public class CustomRoundedImageView extends AppCompatImageView {
-    private float cornerRadius = 16f; // 모서리 둥글기 반경(dp)
+    private float cornerRadius = 100f; // 모서리 둥글기 반경(dp)
 
     public CustomRoundedImageView(Context context) {
         super(context);
