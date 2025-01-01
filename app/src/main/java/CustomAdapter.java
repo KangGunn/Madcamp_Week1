@@ -87,15 +87,15 @@ public class CustomAdapter extends BaseAdapter {
         });
 
         switch (currentItem.getType().toLowerCase()) {
-            case "restaurant":
+            case "restaurant": case "식당":
                 imageBackground.setBackgroundResource(R.drawable.restaurant_round);
                 imageView.setImageResource(R.drawable.restaurant_icon);
                 break;
-            case "pub":
+            case "pub": case "주점":
                 imageBackground.setBackgroundResource(R.drawable.pub_round);
                 imageView.setImageResource(R.drawable.pub_icon);
                 break;
-            case "cafe":
+            case "cafe": case "카페":
                 imageBackground.setBackgroundResource(R.drawable.cafe_round);
                 imageView.setImageResource(R.drawable.cafe_icon);
                 break;
