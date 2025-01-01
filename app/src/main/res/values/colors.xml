@@ -8,6 +8,7 @@
     <color name="hashtag_color">#616161</color>
     <color name="hashtag_unselected_text">#616161</color>
     <color name="hashtag_selected_text">#FFFFFF</color>
+    <color name="login_color">#898179</color>
 </resources>
 
 <!--하늘색 :CAE8FF-->

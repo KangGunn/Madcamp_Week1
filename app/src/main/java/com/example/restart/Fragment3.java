@@ -46,6 +46,15 @@ public class Fragment3 extends Fragment {
         //
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        requireActivity().getWindow().setStatusBarColor(
+                ContextCompat.getColor(requireContext(), R.color.main_color)
+        );
+    }
+
     private Fragment3Binding binding;
     private ActivityResultLauncher<String> requestPermissionLauncher;
     private ActivityResultLauncher<Uri> cameraLauncher;

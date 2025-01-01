@@ -20,6 +20,7 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.navigation.PopUpToBuilder;
 
 import com.example.restart.databinding.Fragment1Binding;
 import com.example.restart.model.RestaurantData;
@@ -44,7 +45,15 @@ public class Fragment1 extends Fragment {
 
     public Fragment1() {
         //
-        //
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        requireActivity().getWindow().setStatusBarColor(
+                ContextCompat.getColor(requireContext(), R.color.main_color)
+        );
     }
 
     private Fragment1Binding binding;
