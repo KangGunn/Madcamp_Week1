@@ -258,7 +258,7 @@ public class Fragment3 extends Fragment {
     private void showUploadDialog(){
         if (isInputValid()) {
             new AlertDialog.Builder(requireContext())
-                    .setTitle("업로드 확인")
+//                    .setTitle("업로드 확인")
                     .setMessage("이대로 업로드하시겠습니까?")
                     .setPositiveButton("확인", (dialog, which) -> {
                         //클릭시 코드실행
