@@ -51,7 +51,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="이미지를 선택하려면 클릭하세요."
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:textColor="@android:color/white" />
 
     </FrameLayout>
