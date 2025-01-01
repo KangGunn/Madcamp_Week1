@@ -113,7 +113,7 @@
                 android:rowCount="5"
                 android:useDefaultMargins="true"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent">
+                app:layout_constraintStart_toStartOf="parent" >
 
                 <android.widget.Button
                     android:id="@+id/button1"
@@ -124,7 +124,8 @@
                     android:padding="0dp"
                     android:minHeight="40dp"
                     android:text="#음식이_맛있어요"
-                    android:textColor="@color/hashtag_text_color" />
+                    android:textColor="@color/hashtag_text_color"
+                    android:fontFamily="@font/jalnan2"  />
 
                 <android.widget.Button
                     android:id="@+id/button2"
@@ -135,7 +136,8 @@
                     android:padding="0dp"
                     android:minHeight="40dp"
                     android:text="#양이_많아요"
-                    android:textColor="@color/hashtag_text_color" />
+                    android:textColor="@color/hashtag_text_color"
+                    android:fontFamily="@font/jalnan2"  />
 
                 <android.widget.Button
                     android:id="@+id/button3"
@@ -146,7 +148,8 @@
                     android:padding="0dp"
                     android:minHeight="40dp"
                     android:text="#재료가_신선해요"
-                    android:textColor="@color/hashtag_text_color" />
+                    android:textColor="@color/hashtag_text_color"
+                    android:fontFamily="@font/jalnan2"  />
 
                 <android.widget.Button
                     android:id="@+id/button4"
@@ -157,7 +160,8 @@
                     android:padding="0dp"
                     android:minHeight="40dp"
                     android:text="#음식이_빨리_나와요"
-                    android:textColor="@color/hashtag_text_color" />
+                    android:textColor="@color/hashtag_text_color"
+                    android:fontFamily="@font/jalnan2"  />
 
                 <android.widget.Button
                     android:id="@+id/button5"
@@ -168,7 +172,8 @@
                     android:padding="0dp"
                     android:minHeight="40dp"
                     android:text="#매장이_청결해요"
-                    android:textColor="@color/hashtag_text_color" />
+                    android:textColor="@color/hashtag_text_color"
+                    android:fontFamily="@font/jalnan2"  />
 
                 <android.widget.Button
                     android:id="@+id/button6"
@@ -179,7 +184,8 @@
                     android:padding="0dp"
                     android:minHeight="40dp"
                     android:text="#분위기가_좋아요"
-                    android:textColor="@color/hashtag_text_color" />
+                    android:textColor="@color/hashtag_text_color"
+                    android:fontFamily="@font/jalnan2"  />
 
                 <android.widget.Button
                     android:id="@+id/button7"
@@ -190,7 +196,8 @@
                     android:padding="0dp"
                     android:minHeight="40dp"
                     android:text="#가성비가_좋아요"
-                    android:textColor="@color/hashtag_text_color" />
+                    android:textColor="@color/hashtag_text_color"
+                    android:fontFamily="@font/jalnan2"  />
 
                 <android.widget.Button
                     android:id="@+id/button8"
@@ -201,7 +208,8 @@
                     android:padding="0dp"
                     android:minHeight="40dp"
                     android:text="#비싼만큼_가치있어요"
-                    android:textColor="@color/hashtag_text_color" />
+                    android:textColor="@color/hashtag_text_color"
+                    android:fontFamily="@font/jalnan2"  />
 
                 <android.widget.Button
                     android:id="@+id/button9"
@@ -212,7 +220,8 @@
                     android:padding="0dp"
                     android:minHeight="40dp"
                     android:text="#혼밥하기_좋아요"
-                    android:textColor="@color/hashtag_text_color" />
+                    android:textColor="@color/hashtag_text_color"
+                    android:fontFamily="@font/jalnan2"  />
 
                 <android.widget.Button
                     android:id="@+id/button10"
@@ -223,7 +232,8 @@
                     android:padding="0dp"
                     android:minHeight="40dp"
                     android:text="#접근성이_좋아요"
-                    android:textColor="@color/hashtag_text_color" />
+                    android:textColor="@color/hashtag_text_color"
+                    android:fontFamily="@font/jalnan2"  />
             </GridLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -241,7 +251,8 @@
                     android:layout_height="match_parent"
                     android:text="@string/upload_button_text"
                     android:background="@drawable/upload_button"
-                    android:textColor="@color/hashtag_selected_text" />
+                    android:textColor="@color/hashtag_selected_text"
+                    android:fontFamily="@font/jalnan2" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
