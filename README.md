@@ -19,8 +19,8 @@
 - 앱을 실행하면 **Firebase**를 기반으로 한 로그인 화면이 표시되며, 이메일과 비밀번호를 이용해 회원가입 및 로그인을 할 수 있습니다.
 - 이때, 이메일 형식을 지키고 6자리 이상의 비밀번호를 사용해야 회원가입이 가능합니다.
 
-[탭0 : 로그인 화면](https://prod-files-secure.s3.us-west-2.amazonaws.com/f6cb388f-3934-47d6-9928-26d2e10eb0fc/0bfe7cd2-66a4-418c-aa5d-492f751ed2cf/login.mp4)
 
+https://github.com/user-attachments/assets/30598679-0037-4f9a-bb11-15cee503347e
 탭0 : 로그인 화면
 
 ### 탭 1 : 나의 음식점
