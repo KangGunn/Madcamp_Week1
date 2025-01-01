@@ -50,8 +50,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="이미지를 선택하려면 클릭하세요."
-            android:textSize="14sp"
+            android:text="+"
+            android:textSize="50sp"
             android:textColor="@android:color/white" />
 
     </FrameLayout>
@@ -248,10 +248,10 @@
                 <android.widget.Button
                     android:id="@+id/uploadbutton"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:text="@string/upload_button_text"
                     android:background="@drawable/upload_button"
-                    android:textColor="@color/hashtag_selected_text"
+                    android:textColor="@color/black"
                     android:fontFamily="@font/jalnan2" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>

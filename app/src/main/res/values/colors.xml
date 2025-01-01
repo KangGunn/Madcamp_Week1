@@ -6,8 +6,8 @@
     <color name="selected_button_color">#802DA4FF</color>
     <color name="KMW_tab2_color">#F3E8EB</color>
     <color name="hashtag_color">#616161</color>
-    <color name="hashtag_unselected_text">#616161</color>
-    <color name="hashtag_selected_text">#FFFFFF</color>
+    <color name="hashtag_unselected_text">#FF000000</color>
+    <color name="hashtag_selected_text">#FFFFFFFF</color>
     <color name="login_color">#898179</color>
 </resources>
 
