@@ -51,7 +51,7 @@ public class Fragment0 extends Fragment {
             String password = passwordField.getText().toString().trim();
 
             if (email.isEmpty() || password.isEmpty()) {
-                Toast.makeText(requireContext(), "Email and Password cannot be empty", Toast.LENGTH_SHORT).show();
+                Toast.makeText(requireContext(), "이메일과 비밀번호를 모두 입력해주세요.", Toast.LENGTH_SHORT).show();
                 return;
             }
 
@@ -63,7 +63,7 @@ public class Fragment0 extends Fragment {
             String password = passwordField.getText().toString().trim();
 
             if (email.isEmpty() || password.length() < 6) {
-                Toast.makeText(requireContext(), "Invalid credentials", Toast.LENGTH_SHORT).show();
+                Toast.makeText(requireContext(), "이메일과 비밀번호의 양식이 틀립니다.", Toast.LENGTH_SHORT).show();
                 return;
             }
 
@@ -80,7 +80,7 @@ public class Fragment0 extends Fragment {
                         NavController navController = Navigation.findNavController(requireView());
                         navController.navigate(R.id.fragment1);
                     } else {
-                        Toast.makeText(requireContext(), "Login failed", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(requireContext(), "로그인 실패", Toast.LENGTH_SHORT).show();
                     }
                 });
     }
@@ -89,9 +89,9 @@ public class Fragment0 extends Fragment {
         auth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
-                        Toast.makeText(requireContext(), "Registration successful", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(requireContext(), "회원가입 성공", Toast.LENGTH_SHORT).show();
                     } else {
-                        Toast.makeText(requireContext(), "Registration failed", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(requireContext(), "회원가입 실패", Toast.LENGTH_SHORT).show();
                     }
                 });
     }
